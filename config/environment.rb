@@ -12,6 +12,7 @@ require 'uri'
 require 'pathname'
 require 'pry'
 require 'bcrypt'
+require 'thin'
 
 require 'pg'
 require 'active_record'
