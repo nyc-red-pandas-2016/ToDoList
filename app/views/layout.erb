@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -15,9 +15,33 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Todo List</title>
 </head>
 <body>
-  <%= yield %>
+  <header>
+   <nav id="nav">
+     <ul>
+       <%if !logged_in?%>
+       <!-- <li> <a href="/"></a></li> -->
+       <li> <a href="/login">login</a></li>
+       <li> <a href="/users/new">Register</a></li>
+       <%else%>
+       <li> <a href="/user/<%= current_user.id%>">profile</a></li>
+       <li> <a href="/logout">logout</a></li>
+       <%end%>
+     </ul>
+   </nav>
+
+  </header>
+  <%if @errors%>
+     <ul>
+       <% @errors.each do |error|%>
+       <li> <%= error %></li>
+       <%end%>
+     </ul>
+  <%end%>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
