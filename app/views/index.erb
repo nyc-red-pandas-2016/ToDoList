@@ -6,6 +6,17 @@
 <% if logged_in?%>
   <h1>Create New Todo List</h1>
   <a href="/lists/new" class="btn">Create a new list</a>
+
+  <% if @lists%>
+  <div class="todo-list">
+    <ul>
+      <% @lists.each do |list|%>
+        <li><%= list.name %> <a href="/list/<%= list.id%>/tasks/new"> add a task</a></li>
+        <%end%>
+    </ul>
+  </div>
+  <%end%>
+
 <% else %>
 <form id="login" action="/sessions" method="post">
   <div class="text-field"><input type="text" name="username" placeholder="Username"></div>

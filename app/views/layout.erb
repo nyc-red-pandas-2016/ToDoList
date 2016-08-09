@@ -22,10 +22,10 @@
    <nav id="nav">
      <ul>
        <%if !logged_in?%>
-       <!-- <li> <a href="/"></a></li> -->
        <li> <a href="/login">login</a></li>
        <li> <a href="/users/new">Register</a></li>
        <%else%>
+       <li> <a href="/lists">Manage Lists</a></li>
        <li> <a href="/user/<%= current_user.id%>">profile</a></li>
        <li> <a href="/logout">logout</a></li>
        <%end%>

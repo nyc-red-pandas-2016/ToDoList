@@ -1,0 +1,7 @@
+<h1><%= @list.name%></h1>
+<a href="/taks/new"></a>
+<ul>
+<% @list.tasks.each do |task|%>
+  <li><%=task.description%></li>
+<%end%>
+</ul>

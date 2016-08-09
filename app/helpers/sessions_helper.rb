@@ -8,4 +8,9 @@ helpers do
     !!current_user
   end
 
+
+  def current_list
+    @current_list ||= List.find_by(:id=>session[:list_id])
+  end
+
 end
