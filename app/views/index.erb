@@ -1,27 +1,37 @@
-<h1>Todo List</h1>
-<blockquote >
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
-</blockquote>
-
 <% if logged_in?%>
+<div class="welcome">
   <h1>Create New Todo List</h1>
-  <a href="/lists/new" class="btn">Create a new list</a>
+  <blockquote >
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+  </blockquote>
+  <a href="/lists/new" class="btn btn-new new-list">Create a new list</a>
+</div>
 
   <% if @lists%>
   <div class="todo-list">
-    <ul>
+    <ul class="lists">
       <% @lists.each do |list|%>
-        <li><%= list.name %> <a href="/list/<%= list.id%>/tasks/new"> add a task</a></li>
+        <li><h3 class="list-header"><a href="list/<%=list.id%>"><%= list.name %></a></h3>
+          <ul class="tasks">
+            <%list.tasks.limit(3).each do |task|%>
+            <li><%= task.description%></li>
+            <%end%>
+          </ul>
+        </li>
         <%end%>
     </ul>
   </div>
   <%end%>
-
+<!-- else show form -->
 <% else %>
-<form id="login" action="/sessions" method="post">
-  <div class="text-field"><input type="text" name="username" placeholder="Username"></div>
-  <div class="text-field"><input type="password" name="password" placeholder="Password"></div>
-  <div class="form-btn"><button type="submit">Submit</button></div>
-</form>
+<div class="form login-form">
+  <form id="login" action="/sessions" method="post">
+    <div class="text-field"><input type="text" name="username" placeholder="Username"></div>
+    <div class="text-field"><input type="password" name="password" placeholder="Password"></div>
+    <div class="form-btn"><button type="submit">Submit</button></div>
+  </form>
+</div>
+<div class="register"><a class="btn new-btn" href="/users/new">Register</a></div>
+
 
 <% end %>

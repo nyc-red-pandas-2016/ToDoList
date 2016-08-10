@@ -18,29 +18,30 @@
   <title>Todo List</title>
 </head>
 <body>
-  <header>
-   <nav id="nav">
-     <ul>
-       <%if !logged_in?%>
-       <li> <a href="/login">login</a></li>
-       <li> <a href="/users/new">Register</a></li>
-       <%else%>
-       <li> <a href="/lists">Manage Lists</a></li>
-       <li> <a href="/user/<%= current_user.id%>">profile</a></li>
-       <li> <a href="/logout">logout</a></li>
-       <%end%>
-     </ul>
-   </nav>
+  <%if logged_in?%>
+  <div class="side-menu">
+    <header>
+      <nav id="nav">
+        <ul>
+          <!-- <li> <a href="/login">login</a></li> -->
+          <!-- <li> <a href="/users/new">Register</a></li> -->
+          <li> <a href="/lists">Manage Lists</a></li>
+          <li> <a href="/user/<%= current_user.id%>">profile</a></li>
+          <li> <a href="/logout">logout</a></li>
+        </ul>
+      </nav>
 
-  </header>
+    </header>
+  </div>
+  <%end%>
   <%if @errors%>
-     <ul>
+     <ul id="errors">
        <% @errors.each do |error|%>
        <li> <%= error %></li>
        <%end%>
      </ul>
   <%end%>
-  <div class="container">
+  <div id="main" class="container">
     <%= yield %>
   </div>
 </body>
