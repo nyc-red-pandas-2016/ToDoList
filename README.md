@@ -36,9 +36,9 @@ The required functionality of the site will be described in more detail in the R
 ## Release 2: CRUD'ing a Resource
 
 ### Creating List
-* The registered user is signed in:
- 1. A user can create a new List with a name. (add ajax for this part)
- 2. A user can modify the name of List.
+1. The registered user is signed in:
+ * A user can create a new List with a name. (add ajax for this part)
+ * A user can modify the name of List.
 
 ### Creating Task:
 1. The registered user is signed in:
