@@ -1,30 +1,52 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+## Site Overview
 
-### Purpose
-The Sinatra Skeleton:
+We'll be building a ToDoList site.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+The required functionality of the site will be described in more detail in the Releases section,
 
-### Quickstart
+### All Users
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+  * Browse all lists
 
-As needed, create models & migrations with the `rake` tasks:
+### Unregistered Users
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+  * Register a new account
 
-### Contributing
+### Registered Users
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+  * Sign in
+  * Sign out
+  * Create a new list
+  * Add a new task to list
+  * Have a profile showing completed and uncompleted task
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+## Release 0: User Registration
+ ** Users will need to register for a new account. The from should contain email, username, and password. The username must be unique.
+ ** If constraints are met, the user should be considered logged in and redirected to the home page
+ ** If either constraint is not met, the user should see the registration form and error messages
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+## Release 1: Login/Logout
+ ** Create a link on the login page, where a user can enter email and password.
+ ** If email and password match to record, then the user should be considered logged in and redirected to the home page
+ ** If either constraint is not met, the user should see the login form and error messages
+
+
+## Release 2: CRUD'ing a Resource
+
+### Creating List
+* The registered user is signed in:
+ 1. A user can create a new List with a name. (add ajax for this part)
+ 2. A user can modify the name of List.
+
+### Creating Task:
+* The registered user is signed in:
+   1. For existing List, a user can add a new Task with description and status(completed/uncompleted). The default value for status `false`. (You can user checkbox for marking task)
+   2. A user can delete Task. (add ajax for this part)
+   3. A user can modify the task. (add ajax for this part)
+   4. A User can complete the task and many tags for task.
+### Profile Page:
+ * On profile page user can see all List.
+ * On profile page user can see all completed tasks.
+
+## Additional functionality
+ * When a user creates a new Task, a user also can add date, when a task should be completed. If the date is overdue and status of the task still `false` (uncompleted), then show message near task. 'task is overdue'
