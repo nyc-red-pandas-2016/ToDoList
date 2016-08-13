@@ -21,14 +21,16 @@ The required functionality of the site will be described in more detail in the R
   * Have a profile showing completed and uncompleted task
 
 ## Release 0: User Registration
- ** Users will need to register for a new account. The from should contain email, username, and password. The username must be unique.
- ** If constraints are met, the user should be considered logged in and redirected to the home page
- ** If either constraint is not met, the user should see the registration form and error messages
+ * Users will need to register for a new account. The from should contain email, username, and password. The username must be unique.
+ 
+ * If constraints are met, the user should be considered logged in and redirected to the home page
+ 
+ * If either constraint is not met, the user should see the registration form and error messages
 
 ## Release 1: Login/Logout
- ** Create a link on the login page, where a user can enter email and password.
- ** If email and password match to record, then the user should be considered logged in and redirected to the home page
- ** If either constraint is not met, the user should see the login form and error messages
+ * Create a link on the login page, where a user can enter email and password.
+ * If email and password match to record, then the user should be considered logged in and redirected to the home page
+ * If either constraint is not met, the user should see the login form and error messages
 
 
 ## Release 2: CRUD'ing a Resource
@@ -39,11 +41,14 @@ The required functionality of the site will be described in more detail in the R
  2. A user can modify the name of List.
 
 ### Creating Task:
-* The registered user is signed in:
-   1. For existing List, a user can add a new Task with description and status(completed/uncompleted). The default value for status `false`. (You can user checkbox for marking task)
-   2. A user can delete Task. (add ajax for this part)
-   3. A user can modify the task. (add ajax for this part)
-   4. A User can complete the task and many tags for task.
+1. The registered user is signed in:
+   * For existing List, a user can add a new Task with description and status(completed/uncompleted). The default value for status `false`. (You can user checkbox for marking task)
+   * A user can delete Task. (add ajax for this part)
+
+   * A user can modify the task. (add ajax for this part)
+   
+   * A User can complete the task and many tags for task.
+  
 ### Profile Page:
  * On profile page user can see all List.
  * On profile page user can see all completed tasks.
