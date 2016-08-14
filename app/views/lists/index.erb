@@ -1,0 +1,22 @@
+<div class='container'>
+	<h1>all ToDoLists</h1>
+
+	<% if logged_in? %>
+		<h3><a id="create_list" href="/lists/new">Add a List</a></h3>
+	<% end %>
+
+	<ol class="create_list">
+		<% @all_lists.each do |list| %>
+		<li><a href="/lists/<%= list.id %>"><%= list.title %></a>
+			<ul>
+				<li>created by <a href="/users/<%= list.user.id %>"><%= list.user.username %></a></li>
+			</ul>
+		</li>
+		<% end %>
+	</ol>
+
+	<% 30.times do %>
+		<br>
+	<% end %>
+
+</div>

@@ -1,9 +1,21 @@
 $(document).ready(function() {
 
+	// // Creating new list
+	// $('#create_list').click(function(event) {
+	// 	event.preventDefault();
+	// 	var data = $(this).serialize();
+	// 	$.ajax(
+ //        {
+ //          url: '/lists/new',
+ //          type: 'POST',
+ //          data: data
+ //        }
+	// });
+
 	// Sticky Header
 	$(window).scroll(function() {
 
-	    if ($(window).scrollTop() > 100) {
+	    if ($(window).scrollTop() > 30) {
 	        $('.main_h').addClass('sticky');
 	    } else {
 	        $('.main_h').removeClass('sticky');

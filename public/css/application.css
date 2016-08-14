@@ -92,6 +92,11 @@ p {
        1px 1px 0 #000;
 }
 
+footer h4 {
+  text-align: center;
+  padding-top: 30px;
+}
+
 
 /*Nav bar*/
 .main_h {

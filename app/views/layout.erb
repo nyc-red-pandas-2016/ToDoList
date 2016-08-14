@@ -30,9 +30,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/lists/index">Lists</a></li>
+                <li><a href="/lists">Lists</a></li>
                 <li><a href="/tasks/index">Tasks</a></li>
                 <% if current_user %>
+                <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
                 <li><a href="/users/logout">Log Out</a></li>
                 <% else %>
                 <li><a href="/users/new">Register</a></li>
@@ -44,6 +45,11 @@
 </header>
 
   <%= yield %>
+  <footer>
+    <div class="container">
+      <h4>© 2016 momo, Inc. </h4>
+    </div>
+  </footer>
 
 </body>
 </html>

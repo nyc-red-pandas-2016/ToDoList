@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :tasks, { through: :lists }
 
   validates :username, :email, :password, presence: true
-  validates :username, length: { minimum: 3 }
+  validates :username, uniqueness: true, length: { minimum: 3 }
   validates :email, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "invalid email address" }
   validates :password, length: { in: 6..20 }
 end
