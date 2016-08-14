@@ -1,1 +1,23 @@
+<div class="container">
+  <h2>Register a New Account!</h2>
+  <h5>*password must be at least 6 characters</h5>
 
+<% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<form role="form" action="/users" method="post">
+  <label for="user[username]">Username:</label>
+  <input type="text" name="user[username]"><br><br>
+    <label for="user[email]">Email:</label>
+  <input type="text" name="user[email]"><br><br>
+  <label for="user[password]">Password:</label>
+  <input class="form-control input-sm" type="password" name="user[password]"><br><br>
+  <button type="submit">Register</button><br>
+</form>
+
+</div>

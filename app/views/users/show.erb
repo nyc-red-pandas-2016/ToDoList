@@ -1,0 +1,47 @@
+<div class="container">
+ <h2>Welcome, <%= current_user.username %>!</h2>
+<h3>Your Lists:</h3>
+<table style="width:80%">
+  <tr>
+    <th><h4>List</h4></th>
+    <th><h4>Date Created</h4></th>
+  </tr>
+    <% @user_lists.each do |list| %>
+    <tr>
+      <td><a href="/lists/<%= list.id %>"><%= list.title %></a></td>
+    <td><%= list.created_at.strftime("%b %d, 20%y") %><% end %></td>
+  </tr>
+</table>
+<h3>Completed Tasks</h3>
+<table style="width:80%">
+  <tr>
+    <th><h4>Task</h4></th>
+    <th><h4>Date Added</h4></th>
+  </tr>
+    <% @user_tasks.each do |task| %>
+    <tr>
+      <td>
+        <% if task.complete %>
+        <%= task.description %>
+        <% end %>
+      </td>
+    <td><%= task.created_at.strftime("%b %d, 20%y") %><% end %></td>
+  </tr>
+</table>
+<h3>Tasks In Progress</h3>
+<table style="width:80%">
+  <tr>
+    <th><h4>Task</h4></th>
+    <th><h4>Date Added</h4></th>
+  </tr>
+    <% @user_tasks.each do |task| %>
+    <tr>
+      <td>
+        <% if !task.complete %>
+        <%= task.description %>
+        <% end %>
+      </td>
+    <td><%= list.task.created_at.strftime("%b %d, 20%y") %><% end %></td>
+  </tr>
+</table>
+</div>

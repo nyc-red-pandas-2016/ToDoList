@@ -1,1 +1,35 @@
-new.erb
+<div class="container">
+  <h2>New List</h2>
+
+  <form action="/lists" method="post">
+    <label for="list">Title:</label>
+    <input type="text" name="list[name]"></div>
+    <br><br>
+    <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <label for="list">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+      <input type="hidden" name="list[user_id]" value="<%= current_user.id %>">
+    <br><br><button type="submit">Create</button>
+  </form>
+</div>
