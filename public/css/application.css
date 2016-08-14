@@ -1,7 +1,7 @@
 .banner {
   text-align: center;
-  font-style: "Helvetica", sans-serif;
 }
+
 
 /********
 NAVIGATION
@@ -16,10 +16,20 @@ margin: 0;
 padding: 0;
 overflow: hidden;
 background-color: black;
+position: relative;
+}
+
+.navigation h2 {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  margin: 0;
+  padding-top: 8px;
+  padding-left: 10px;
 }
 
 .navigation li {
-  float: left;
+  float: right;
 }
 
 .navigation li a {
@@ -34,30 +44,100 @@ text-decoration: none;
 background-color: blue;
 }
 
+.container {
+  width: 98%;
+  margin: 1%;
+  position: relative;
+}
+
+.container h3{
+  text-align: center;
+}
+
+.container button {
+
+}
+
+/********
+HomePage
+*********/
+
+button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  position: absolute;
+  left: 490px;
+}
+
+button a{
+  text-decoration: none;
+  color: white;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 
 /********
 Profile Table
 *********/
 
-.container {
-  width: 98%;
-  margin: 1%;
-}
 
-#profile-table table, th, td {
+table {
     /*border: 1px solid black;*/
     border-collapse: collapse;
-    width: 40%;
     border-bottom: 1px solid #ddd;
-    height: 30px;
     text-align: left;
     padding: 15px;
-    align: "center";
+    width: 60%;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
  th {
   background-color: #4CAF50;
-    color: white;
+  color: black;
+  height: 50px;
+  padding: 15px;
+}
+
+td {
+  height: 50px;
+  padding: 15px;
 }
 
  tr:hover {

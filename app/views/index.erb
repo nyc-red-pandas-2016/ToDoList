@@ -1,1 +1,10 @@
-<h3>Hi there!</h3>
+<% if current_user %>
+  <div class='container'>
+    <h3>What would you like to do today?</h3>
+    <button><span><a href="/lists/new">Create List</a></span></button>
+  </div>
+<% else %>
+<div class='container'>
+  <h3>Register or Login to create or edit your todo lists!</h3>
+</div>
+<% end %>

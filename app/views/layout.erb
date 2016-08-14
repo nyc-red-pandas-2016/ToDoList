@@ -20,6 +20,7 @@
 <body>
   <div>
       <nav class='navigation'>
+        <h2 class='logo'>ToDo<em>List</em></h2>
         <ul>
       <% if current_user %>
         <li><a href="/">Home</a></li>
@@ -31,10 +32,15 @@
         <li><a href="/users/new">Register</a></li>
       </ul>
       <% end %>
+    </nav>
   </div>
 
   <div class="banner">
-    <h1>Welcome to the ToDo List app!</h1>
+    <% if current_user %>
+      <h1>Hi, <%= User.find(current_user).username%>!</h1>
+    <% else %>
+      <h1>Welcome to the ToDo List app!</h1>
+    <% end %>
   </div>
 
   <%= yield %>

@@ -1,15 +1,18 @@
 <% @user = User.find(current_user) %>
 <% @user.lists.each do |list| %>
 <div class='container'>
-  <table id='profile-table'>
+<h3>Here's your current todo lists:</h3>
+  <table align="center">
     <tr>
       <th>List Name</th>
       <th>Total Tasks</th>
+      <th>Completed Tasks</th>
       <th>Date Created</th>
     </tr>
     <tr>
       <td><%= list.title %></td>
       <td><%= list.tasks.count %></td>
+      <td><%= list.tasks.where(status: true).count%></td>
       <td><%= list.created_at %></td>
     </tr>
   </table>
