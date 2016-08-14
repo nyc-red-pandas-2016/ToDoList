@@ -8,7 +8,7 @@
   </tr>
     <% @user_lists.each do |list| %>
     <tr>
-      <td><a href="/lists/<%= list.id %>"><%= list.title %></a></td>
+      <td><a href="/lists/<%= list.id %>"><%= list.name %></a></td>
     <td><%= list.created_at.strftime("%b %d, 20%y") %><% end %></td>
   </tr>
 </table>

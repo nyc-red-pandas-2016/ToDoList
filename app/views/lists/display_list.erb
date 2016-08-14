@@ -1,0 +1,17 @@
+<div class="container">
+  <h3><%= @list.name %></h3>by: <%= @list.user.username %><br>Posted: <%= @list.created_at.strftime("%b %d, 20%y") %><br>
+<% if current_user %>
+<% if @list.user.id == current_user.id %>
+<form method="post" action="/lists/<%=@list.id%>">
+  <input type="hidden" name="_method" value="delete"/>
+  <br><button type="submit" class="btn btn-default">Delete List</button>
+  </form>
+  <% end %>
+<% end %>
+<ul>
+<% @tasks.each do |task| %>
+<li><%= task.description %></li>
+</ul>
+<% end %>
+
+<div>

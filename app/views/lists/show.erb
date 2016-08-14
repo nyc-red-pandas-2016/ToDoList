@@ -1,7 +1,7 @@
 <div class='container'>
   <h1>All Lists:</h1>
     <% @lists.order('created_at DESC').each do |list| %>
-      <div ><a href='/lists/<%= list.id%>'><h4><%= list.title %></h4></a>by: <%= list.user.username %></div><br><br>
+      <div ><a href='/lists/<%= list.id%>'><h4><%= list.name %></h4></a>by: <%= list.user.username %></div><br><br>
               Created: <%= list.created_at.strftime("%b %d, 20%y") %>
       </div>
     <% end %>
