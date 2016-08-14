@@ -1,1 +1,17 @@
-show.erb
+<% @user = User.find(current_user) %>
+<% @user.lists.each do |list| %>
+<div class='container'>
+  <table id='profile-table'>
+    <tr>
+      <th>List Name</th>
+      <th>Total Tasks</th>
+      <th>Date Created</th>
+    </tr>
+    <tr>
+      <td><%= list.title %></td>
+      <td><%= list.tasks.count %></td>
+      <td><%= list.created_at %></td>
+    </tr>
+  </table>
+</div>
+<% end %>

@@ -18,21 +18,22 @@
   <title></title>
 </head>
 <body>
-
   <div>
-    <nav class='navigation'>
-      <ul>
+      <nav class='navigation'>
+        <ul>
+      <% if current_user %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/users/:id">Profile</a></li>
+        <li><a href="/users/logout">Logout</a>
+      <% else %>
         <li><a href="/">Home</a></li>
         <li><a href="/users/login">Login</a></li>
         <li><a href="/users/new">Register</a></li>
-        <li><a href="/users/:id">Profile</a></li>
-        <li><a href="/users/logout">Logout</a></li>
       </ul>
-    </nav>
+      <% end %>
   </div>
 
   <div class="banner">
-
     <h1>Welcome to the ToDo List app!</h1>
   </div>
 

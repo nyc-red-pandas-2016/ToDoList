@@ -7,12 +7,12 @@ get '/users/login' do
 end
 
 put '/users' do
-  @user = User.find_by(params[:email])
+  @user = User.find_by(email: params[:email])
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect '/'
   else
-    @errors = ['Invalid username or password']
+    @errors = ["Invalid username or password"]
     erb :'users/login'
   end
 end
@@ -31,12 +31,12 @@ post '/users' do
   end
 end
 
-# get '/users/:id' do
-#   erb :'users/show'
-# end
+get '/users/:id' do
+  erb :'users/show'
+end
 
 get '/users/logout' do
   require_user
-  session[:user_id].clear
+  session.clear
   redirect '/'
 end
