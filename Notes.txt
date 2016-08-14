@@ -1,0 +1,44 @@
+1. Create Schema
+2. Create Tables
+3. Create Models
+4. Create associations
+5. Test associations
+6. Create homepage route
+7. Create homepage view
+8. Create /users/:id route
+9. Create /users/:id view
+10. Create /lists/new route
+11. Create /lists view
+12. Create /lists/tasks/new route
+13. Create /lists/tasks view
+
+
+
+Schema:
+User: id, username (unique), email, password, timestamps
+
+List: id, title, timestamps, user_id
+
+Task: id, name, description, status, timestamps, list_id, user_id
+
+Tags: id, name, tagable_id, tagable_type
+
+
+Associations:
+User has many lists
+User has many tasks
+
+List belongs to user
+List has many tasks
+List has many tags as tagable
+
+Task belongs to list
+Task belongs to user
+Task has many tags as tagable
+
+Tag has many lists
+Tag has many tasks
+Tag belongs to tagable polymorphic true
+
+Extra:
+Comments
