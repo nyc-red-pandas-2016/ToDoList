@@ -1,5 +1,5 @@
 <div class="container">
-  <h3><%= @list.name %></h3>by: <%= @list.user.username %><br>Posted: <%= @list.created_at.strftime("%b %d, 20%y") %><br>
+  <h3><%= @list.name %></h3>By: <%= @list.user.username %><br>Created: <%= @list.created_at.strftime("%b %d, 20%y") %><br>
 <% if current_user %>
 <% if @list.user.id == current_user.id %>
 <form method="post" action="/lists/<%=@list.id%>">
