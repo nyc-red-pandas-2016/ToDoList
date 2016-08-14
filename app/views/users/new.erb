@@ -1,0 +1,37 @@
+ <div class="container" id="wrapper" >
+  <form id="register-form" class="login-register-form" action="/users" method="post">
+
+    <div class="header">
+      <h1>Register:</h1>
+      <span>Please fill out the information below to register!</span>
+
+      <ul id="register-errors" class="header">
+        <% if @errors %>
+          <% @errors.each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="content">
+      <div>
+        <input id="#username-input" class="input username" type="text" name="user[username]" placeholder="username" value="<%= @user.username %>">
+      </div>
+
+      <div>
+        <input id="#email-input" class="input password" type="text" name="user[email]" placeholder="email" value="<%= @user.email  %>">
+      </div>
+
+      <div>
+        <input id="#password-input" class="input password" type="password" name="user[password]" placeholder="password">
+      </div>
+    </div>
+
+    <div class="footer">
+      <input type="submit" value="Register" class="button">
+    </div>
+
+  </form>
+</div>
+
