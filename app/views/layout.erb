@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
   <link rel="stylesheet" href="/css/application.css">
+
+  <!-- Global font -->
+  <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+
+  <!-- Nav bar -->
+  <link href='http://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
+  <link href='style.css' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>ToDoList</title>
 </head>
 <body>
+
+  <header class="main_h">
+    <div class="row">
+        <a class="logo" href="/">ToDoList</a>
+        <div class="mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/lists/index">Lists</a></li>
+                <li><a href="/tasks/index">Tasks</a></li>
+                <% if current_user %>
+                <li><a href="/users/logout">Log Out</a></li>
+                <% else %>
+                <li><a href="/users/new">Register</a></li>
+                <li><a href="/users/login">Log In</a></li>
+                <% end %>
+            </ul>
+        </nav>
+    </div> 
+</header>
+
   <%= yield %>
+
 </body>
 </html>

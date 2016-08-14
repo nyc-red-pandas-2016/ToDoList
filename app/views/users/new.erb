@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h1><a href='/'>Lets Get You Signed Up</a><h1>
+
+  	<div class="errors">
+	  	<% if @errors %>
+	    <% @errors.each do |error| %>
+	      <ul>
+	        <li><%= error %></li>
+	      </ul>
+	      <% end %>
+	    <% end %>
+    </div>
+
+	<form id="register" action="/users" method="POST">
+		<div class="row email">
+			<input type="text" name="user[email]" placeholder="Email"> </div>
+		<div class="row username">
+			<input type="text" name="user[username]" placeholder="Username"></div>
+		<div class="row pass">
+			<input type="password" name="user[password]" placeholder="Password"></div>
+		<input type="submit" name="" value="Register">
+	</form>
+</div>

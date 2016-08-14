@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h1><a href='/'>Welcome back!</a><h1>
+
+  	<div class="errors">
+	  	<% if @error %>
+			<p><%= @error %></p>
+	    <% end %>
+    </div>
+
+	<form id="login" action="/users/login" method="POST">
+		<div class="row username">
+			<input type="text" name="username" placeholder="Username"></div>
+		<div class="row pass">
+			<input type="password" name="password" placeholder="Password"></div>
+		<input type="submit" name="" value="Log In">
+	</form>
+</div>
