@@ -1,14 +1,14 @@
 get '/list/:id/tasks/new' do
   @list = List.find(params[:id])
-  session[:list_id] = @list.id
+  # session[:list_id] = @list.id
   erb :"tasks/new"
 end
-#
-# get '/task/:id' do
-#   # session[:list_id].clear
-#
-#   erb :"tasks/show"
-# end
+
+put '/tasks/:id' do
+  task = Task.find(params[:id])
+  task.completed
+  redirect "/list/#{current_list.id}"
+end
 
 
 post '/tasks' do

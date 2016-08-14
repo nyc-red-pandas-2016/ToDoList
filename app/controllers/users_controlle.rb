@@ -8,10 +8,6 @@ get '/users/new' do
     redirect "/user/#{current_user.id}" if logged_in?
     erb :"users/new"
 end
-#
-# get '/users/edit' do
-#
-# end
 
 post '/users' do
   @user = User.new(params[:user])

@@ -1,15 +1,40 @@
-<h1 class="task-title"><%= @list.name%></h1>
-<a href="/taks/new"></a>
+<div class="main-body">
+  <h1 class="task-title"><%= @list.name%></h1>
+  <a href="/taks/new"></a>
+  <table class="list-tasks">
+    <tr>
+      <th>Delete</th>
+      <th>Complete</th>
+      <th>Task</th>
+    </tr>
+    <% @list.tasks.each do |task|%>
+    <tr>
+      <td>
+        <form class="task-delete" action="/tasks/<%=task.id%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">X</button>
+        </form>
+      </td>
+      <td>
+        <form class="task-update" action="/tasks/<%=task.id%>" method="post">
+          <input type="hidden" name="_method" value="put">
+          <button type="submit" class="btn-check">
+            <% if !!task.complete%>
+            <img src="/images/check.png" width="25" height="25" alt="">
+            <%else%>
+            <img src="/images/check-gray.png" width="25" height="25" alt="">
+            <%end%>
+          </button>
+        </form>
+      </td>
+      <td>
+        <span <%if task.complete == true%> class="complete-task"<%end%>><%=task.description%></span>
 
-<ul class="tasks-show">
-<% @list.tasks.each do |task|%>
-  <li>
-    <form class="task-delete" action="/tasks/<%=task.id%>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">X</button>
-  </form>
-  <%=task.description%></li>
-<%end%>
-</ul>
+      </td>
+    </tr>
+    <%end%>
+  </table>
 
-<a class="btn btn-new" href="/list/<%= @list.id%>/tasks/new"> add a task</a>
+
+    <a class="btn btn-new" href="/list/<%= @list.id%>/tasks/new"> add a task</a>
+</div>

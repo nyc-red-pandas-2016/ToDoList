@@ -1,6 +1,8 @@
-<h1>Add a new task to <span><%= @list.name%></span></h1>
+<div class="main-body">
+  <h1>Add a new task to <span><%= @list.name%></span></h1>
 
-<form action="/tasks" method="post">
-  <div class="text-field"><textarea name="task[description]" rows="4" cols="40">Enter New Task</textarea></div>
-  <div class="form-submit"><button type="submit">Create New Task</button></div>
-</form>
+  <form action="/tasks" method="post">
+    <div class="text-field"><textarea name="task[description]" rows="4" cols="40" placeholder="Enter New Task"></textarea></div>
+    <div class="form-submit"><button type="submit">Create New Task</button></div>
+  </form>
+</div>

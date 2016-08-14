@@ -45,6 +45,7 @@ h3 {
 
 
 .side-menu {
+   position:fixed;
     padding:20px;
     float: left;
     width:20%;
@@ -56,8 +57,11 @@ h3 {
 #main {
     padding:20px;
     height:100%;
-    width:80%;
+    width:100%;
     float:left;
+}
+.main-body{
+  padding-left: 21%;
 }
 .welcome {
     text-align: center;
@@ -93,7 +97,11 @@ h3 {
     padding:15px 20px;
     border-radius:4px;
 }
-
+.btn-check{
+  background-color:transparent;
+  border:0px;
+  outline:0;
+}
 .btn-new{
   background-color:#ff5858;
 }
@@ -111,13 +119,13 @@ h3 {
     border-radius:5px;
     margin-bottom:20px;
 }
-.form input{
+.form input,form input,form textarea{
     border:1px solid #ececec;
     outline:0px;
     padding:10px;
     width:100%;
 }
-.form button{
+.form button,form button{
   display: block;
   background-color:#286069;
   color:#fff;
@@ -145,9 +153,11 @@ h3 {
   color:#00b6ff;
 }
 .lists > li{
+  min-height:140px;
+  position:relative;
   float:left;
-  width:20%;
-  margin:5px;
+  width:23%;
+  margin:30px 5px 5px 5px;
   display: inline-block;
   background-color:#fff;
   border:1px solid #ececec;
@@ -155,6 +165,20 @@ h3 {
   box-shadow:0px 0px 3px #eee;
   -webkit-border-radius:5px;
   border-radius:5px;
+}
+.list-btn{
+  position:absolute;
+  top: -25px;
+}
+.btn-delete{
+  right: 14px;
+}
+.btn-edit{
+  right: 50px;
+}
+.list-btn button{
+    font-size:.8em;
+    padding:5px 10px;
 }
 .lists h3 a{
   text-transform: capitalize;;
@@ -169,7 +193,10 @@ h3 {
   color:#828282;
   padding:6px 10px;
 }
-
+.complete-task{
+  text-decoration:line-through;
+  color:#ccc;
+}
 .task-delete{
  display:inline-block;
 }
@@ -184,4 +211,21 @@ h3 {
 .tasks-show li {
   padding:15px;
   border-bottom:1px solid #ececec;
+}
+.list-tasks{
+    margin-bottom:20px;
+    width:100%;
+    text-align:left
+}
+.list-tasks th{
+ background-color: #41999e;
+ color:#fff;
+ padding:10px;
+}
+.list-tasks td {
+    padding:5px 10px;
+    border-bottom:1px dashed #ccc;
+}
+.list-tasks td:nth-child(-n+2){
+  width:8%;
 }
