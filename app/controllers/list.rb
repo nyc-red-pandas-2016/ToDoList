@@ -1,7 +1,6 @@
 get '/lists' do
   @user = User.find(current_user)
   @lists = @user.lists
-
 end
 
 
