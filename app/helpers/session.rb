@@ -3,6 +3,14 @@ def logged_in?
   false
 end
 
-def get_user_id
-  
+def get_session_user
+  if session[:user_id]
+    return User.find(session[:user_id])
+  else
+    return nil
+  end
 end
+
+# def authenticate_user(args = {})
+#   user =
+# end
