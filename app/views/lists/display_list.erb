@@ -1,17 +1,26 @@
 <div class="container">
   <h3><%= @list.name %></h3>By: <%= @list.user.username %><br>Created: <%= @list.created_at.strftime("%b %d, 20%y") %><br>
+  <h4><%= @list.description %></h4>
 <% if current_user %>
 <% if @list.user.id == current_user.id %>
 <form method="post" action="/lists/<%=@list.id%>">
   <input type="hidden" name="_method" value="delete"/>
-  <br><button type="submit" class="btn btn-default">Delete List</button>
+  <br><button type="submit">Delete List</button>
   </form>
   <% end %>
 <% end %>
 <ul>
-<% @tasks.each do |task| %>
-<li><%= task.description %></li>
+  tasks go here
 </ul>
-<% end %>
-
+<h4>Add a task:</h4>
+  <form action="/tasks" method="post">
+    <label for="task">Task:</label>
+    <input type="text" name="task[description]"></div>
+    <br><br>
+    <label for="task">Task:</label>
+    <input type="text" name="task[description]">
+    <br><br>
+    <input type="hidden" name="task[list_id]" value="<%= @list.id %>">
+    <br><br><button type="submit">Add Task</button>
+  </form>
 <div>

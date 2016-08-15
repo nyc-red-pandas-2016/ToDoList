@@ -6,7 +6,7 @@
     <th><h4>List</h4></th>
     <th><h4>Date Created</h4></th>
   </tr>
-    <% @user_lists.each do |list| %>
+    <% @lists.each do |list| %>
     <tr>
       <td><a href="/lists/<%= list.id %>"><%= list.name %></a></td>
     <td><%= list.created_at.strftime("%b %d, 20%y") %><% end %></td>
@@ -18,14 +18,11 @@
     <th><h4>Task</h4></th>
     <th><h4>Date Added</h4></th>
   </tr>
-    <% @user_tasks.each do |task| %>
     <tr>
       <td>
-        <% if task.complete %>
-        <%= task.description %>
-        <% end %>
+        task
       </td>
-    <td><%= task.created_at.strftime("%b %d, 20%y") %><% end %></td>
+    <td>date</td>
   </tr>
 </table>
 <h3>Tasks In Progress</h3>
@@ -34,14 +31,11 @@
     <th><h4>Task</h4></th>
     <th><h4>Date Added</h4></th>
   </tr>
-    <% @user_tasks.each do |task| %>
     <tr>
       <td>
-        <% if !task.complete %>
-        <%= task.description %>
-        <% end %>
+        task
       </td>
-    <td><%= list.task.created_at.strftime("%b %d, 20%y") %><% end %></td>
+    <td>date</td>
   </tr>
 </table>
 </div>

@@ -1,14 +1,10 @@
 get '/lists/new' do
-  @list_id = List.last.id
 
   erb :'/lists/new'
 end
 
 post '/lists' do
-  @list = List.new({name: (params[:list][:name]), user_id: params[:list][:user_id]})
-  @list_id = List.last.id
-  @task = Task.new({description: (params[:task][:description]), user_id: (params[:task][:user_id]), list_id: (params[:task][:list_id])})
-  @list_id = List.last.id
+  @list = List.new(params[:list])
   if @list.save
     redirect '/lists/show'
   else
@@ -24,7 +20,7 @@ end
 
 get '/lists/:id' do
   @list = List.find(params[:id])
-  @tasks = List.find(params[:id]).tasks
+  # @tasks = @list.tasks
   erb :'/lists/display_list'
 end
 

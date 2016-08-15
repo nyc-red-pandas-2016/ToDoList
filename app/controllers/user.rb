@@ -37,7 +37,7 @@ end
 get '/users/:id' do
 
   @user = User.find(params[:id])
-  @user_lists = User.find_by(id: params[:id]).lists
-  @user_tasks = User.find_by(id: params[:id]).tasks
+  @lists = @user.lists
+  # @tasks = @lists.tasks
    erb :'users/show'
 end
