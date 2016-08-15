@@ -1,8 +1,4 @@
 <div class="main-body">
-
-  <form action="/lists/<%=list.id %>" method="post">
-    <%= erb :'lists/_form' %>
-    <div class="form-submit"><button type="submit">Create New List</button></div>
-  </form>
-
+  <h1>Title: <%=@list.name%> </h1>
+  <%= erb :"lists/_edit_form",locals:{list: @list}%>
 </div>

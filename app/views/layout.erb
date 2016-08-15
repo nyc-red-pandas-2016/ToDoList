@@ -12,7 +12,8 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+  <script src="/js/jquery-3.1.0.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title>Todo List</title>
@@ -23,15 +24,12 @@
     <header>
       <nav id="nav">
         <ul>
-          <!-- <li> <a href="/login">login</a></li> -->
-          <!-- <li> <a href="/users/new">Register</a></li> -->
-          <li> <a href="/lists/new" class="btn btn-new new-list">Create a new list</a></li>
+          <li> <a id="lists-new" href="/lists/new" class="btn btn-new new-list">Create a new list</a></li>
           <li> <a href="/lists">Manage Lists</a></li>
           <li> <a href="/user/<%= current_user.id%>">profile</a></li>
           <li> <a href="/logout">logout</a></li>
         </ul>
       </nav>
-
     </header>
   </div>
   <%end%>
@@ -43,6 +41,11 @@
        <!-- <span style="float:right;">X</span> -->
      </ul>
   <%end%>
+  <div class="modal" >
+    <div class="modal-inner">
+      <span class="close">X</span>
+    </div>
+  </div>
   <div id="main" class="container">
     <%= yield %>
   </div>

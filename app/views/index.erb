@@ -2,9 +2,9 @@
   <% if logged_in?%>
   <div class="main-body">
   <div class="welcome">
-    <h1>Create New Todo List</h1>
+    <h1>Manage To-do List</h1>
     <blockquote >
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+      To add Tasks to your todo-list click on the title to add Tasks
     </blockquote>
   </div>
 
@@ -14,11 +14,7 @@
         <% @lists.each do |list|%>
           <li>
             <div class="btn-edit list-btn">
-              <a href="/lists/edit">edit</a>
-              <!-- <form action="/lists/<%= list.id%>" method="post">
-                <input type="hidden" name="_method" value="put">
-                <button type="submit">edit</button>
-              </form> -->
+              <a id="lists-edit" href="/lists/<%= list.id%>/edit"><img src="images/settings.png" width='12' height="12" alt=""></a>
             </div>
             <div class="btn-delete list-btn">
               <form action="/lists/<%= list.id%>" method="post">

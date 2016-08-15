@@ -11,16 +11,19 @@ get '/list/:id' do
 end
 
 get '/lists/new' do
+  return erb :'/lists/_new_form',layout: false  if request.xhr?
   erb :"lists/new"
 end
 
-get '/lists/edit' do
+get '/lists/:id/edit' do
+  @list = List.find(params[:id])
+  return erb :"lists/_edit_form",layout:false if request.xhr?
   erb :"lists/edit"
 end
 
 put '/list/:id' do
   list = List.find(params[:id])
-  list.update_attributes(:title=>params[:list])
+  list.update_attributes(:name=>params[:name])
   redirect :'/'
 end
 

@@ -1,0 +1,5 @@
+<form action="/list/<%= @list.id %>" method="post">
+<input type="hidden" name="_method" value="put">
+<div class="text-field"><input type="text" name="name" placeholder="Name Your Todo List" value="<%=@list.name%>"> </div>
+<div class="form-submit"><button type="submit">Edit</button></div>
+</form>

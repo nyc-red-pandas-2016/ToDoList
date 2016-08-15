@@ -9,7 +9,10 @@ body{
     background-color:#f9f9f9;
     color:#242424
 }
-
+p.guest {
+    color: #999;
+    text-align: center;
+}
 ul{
   list-style-type:none;
   margin:0px;
@@ -18,7 +21,7 @@ ul{
 /*headers*/
 h1 {
     color: #464646;
-    border-bottom: 1px solid #ececec;
+    /*border-bottom: 1px solid #ececec;*/
     padding: 8px 0px;
 }
 h3 {
@@ -64,6 +67,8 @@ h3 {
   padding-left: 21%;
 }
 .welcome {
+  border-bottom: 1px solid #ececec;
+  margin-bottom:40px;
     text-align: center;
 }
 
@@ -105,6 +110,11 @@ h3 {
 .btn-new{
   background-color:#ff5858;
 }
+.btn.new-btn, .btn.new-btn:visited {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: #fff;
+}
 
 /*login form*/
 .login-form {
@@ -125,7 +135,7 @@ h3 {
     padding:10px;
     width:100%;
 }
-.form button,form button{
+.form button,form button,.list-btn a{
   display: block;
   background-color:#286069;
   color:#fff;
@@ -167,6 +177,8 @@ h3 {
   border-radius:5px;
 }
 .list-btn{
+  overflow: hidden;
+  border-radius: 5px 5px 0px 0px;
   position:absolute;
   top: -25px;
 }
@@ -176,7 +188,11 @@ h3 {
 .btn-edit{
   right: 50px;
 }
-.list-btn button{
+.list-btn a{
+  display:block
+}
+.list-btn button,.list-btn a{
+    text-decoration:none;
     font-size:.8em;
     padding:5px 10px;
 }
@@ -228,4 +244,42 @@ h3 {
 }
 .list-tasks td:nth-child(-n+2){
   width:8%;
+}
+
+
+/*modal*/
+.modal {
+    display:none;
+    /*opacity: 0;*/
+    z-index:999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+}
+.modal-inner{
+     opacity:0;
+    background-color:#fff;
+    max-width:500px;
+    padding: 20px;
+    height: 138px;
+    position: absolute;
+    left:0;
+    right:0;
+    top:40px;
+    bottom:0;
+    margin:auto;
+}
+
+
+.modal-inner span{
+   display:inline-block;
+    background-color: #286069;
+    color:#fff;
+    padding:5px 10px;
+    position:absolute;
+    left:-31px;
+    cursor:pointer;
 }
