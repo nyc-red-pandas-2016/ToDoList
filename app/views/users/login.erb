@@ -1,0 +1,20 @@
+<div class= "container">
+    <h1>Log In</h1>
+  <form action="/users/login" method="post" class="register_form">
+    <label for="user[email]">E-mail:</label>
+    <input type="text" name="user[email]"><br><br>
+    <label for="user[password]">Password:</label>
+    <input type="password" name="user[password]">
+    <br><br>
+
+    <input type="submit" value="Sign In" class="style_button">
+  </form>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li class="error"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

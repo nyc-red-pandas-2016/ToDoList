@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -16,6 +16,23 @@
   <script src="/js/application.js"></script>
 
   <title></title>
+  <nav id="homerow">
+  <div id="home_icon">
+    <a class="style_button" id="home_button" href="/"> Home </a>
+  </div>
+
+
+  <div id="top_row">
+      <% if current_user %>
+        <a class="style_button" href="/users/profile/<%=current_user%>"><%= current_user_name %>'s Profile</a>
+        <a class="style_button" href="/lists/create">Create A List!</a>
+        <a class="style_button" href="/users/logout">Logout</a>
+      <% else %>
+        <a class="style_button" href="/users/new">Register</a>
+        <a class="style_button" href="/users/login">Login</a>
+      <% end %>
+  </div>
+</nav>
 </head>
 <body>
   <%= yield %>

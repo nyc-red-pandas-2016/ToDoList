@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="list_container" id="<%=@list.id%>">
+  <h1> <%= @list.title %> </h1>
+  </div>
+
+  <% if @list.tasks %>
+  <ul class="list">
+  <% @list.tasks.each do |task| %>
+    <li class="list-item">
+      <%= task.name %> <%=task.body %>
+    </li>
+  <% end %>
+  </ul>
+  <% end %>
+
+  <a class="style_button" id="task_button" href="/tasks/create">Create A Task!</a><br><br>
+
+  <div id="add_task">
+  <form action="/tasks/create" method="post" id="new_task_form" class="register_form hidden">
+  <label for="task[title]">Task Name:</label><br>
+    <input id="search_area" type="text" name="task[title]">
+    <br><br>
+    <label for="task[body]">Task Description:</label><br>
+    <textarea rows="3" cols="50" name="task[body]"> </textarea><br><br>
+
+    <input type="submit" value="Create Task" id="task_submit_button" class="style_button">
+  </div>
+</div>

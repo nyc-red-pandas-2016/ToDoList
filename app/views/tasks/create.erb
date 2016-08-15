@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Add a task to this list</h1>
+  <form action="/tasks/create" method="post" class="register_form">
+    <label for="task[title]">Title:</label><br>
+    <input id="search_area" type="text" name="list[title]" placeholder="Title your list!"><br><br>
+
+    <label for="tasks">Add Tasks Separated By Spaces:</label><br>
+    <textarea rows="3" cols="50" name="tasks"> </textarea><br><br>
+
+    <input type="hidden" name="list[user_id]" value="<%= current_user %>">
+
+    <input type="submit" value="Create List" class="style_button">
+  </form>
+</div>

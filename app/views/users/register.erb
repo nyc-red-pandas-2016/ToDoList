@@ -1,0 +1,22 @@
+<div class="container">
+<h1> Register For An Account Here </h1>
+
+<form class="" action="/users/new" method= "post">
+  <label for="user[username]">Username:</label>
+  <input name="user[username]" type= "text"><br><br>
+  <label for="user[email]">E-mail:</label>
+  <input name="user[email]" type="text"><br><br>
+  <label for="user[password]">Password:</label>
+  <input name="user[password]" type="password"><br><br>
+  <input type="submit" value= "Register" class="top_button">
+</form>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+</div>
