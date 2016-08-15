@@ -1,17 +1,5 @@
 $(document).ready(function() {
 
-	// // Creating new list
-	// $('#create_list').click(function(event) {
-	// 	event.preventDefault();
-	// 	var data = $(this).serialize();
-	// 	$.ajax(
- //        {
- //          url: '/lists/new',
- //          type: 'POST',
- //          data: data
- //        }
-	// });
-
 	// Sticky Header
 	$(window).scroll(function() {
 
@@ -49,4 +37,9 @@ $(document).ready(function() {
 	    event.preventDefault();
 	});
 
+	// Creating new list
+	$('#create_list').on("click", function(event) {
+		event.preventDefault();
+	});
 });
+
