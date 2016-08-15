@@ -1,7 +1,20 @@
-<h3>Create a new list:</h3>
-<div>
-  <form id='new-list' action='/lists/new' method='post'>
+<div class='container'>
+    <div>
+      <h3 id='new-header'>Create a new list:</h3>
+    </div>
 
+    <% if @errors %>
+      <p>Please fix the following errors:</p>
+          <% @errors.each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+    <% end %>
 
-  </form>
+    <div>
+      <form class='new-list-form' action='/lists' method='post'>
+      <input type="text" name="list[title]" placeholder="List Title">
+      <input type="hidden" name="list[user_id]" value="<%= current_user %>">
+      <input type="submit" value="Create" >
+      </form>
+    </div>
 </div>

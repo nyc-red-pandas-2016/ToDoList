@@ -1,0 +1,23 @@
+<div class='container'>
+<h3>Here's your current tasks for the <%= @list.title %> list :</h3>
+
+<div >
+  <button id='task-button'><span><a href="/tasks/new">Create Task</a></span></button>
+</div>
+  <table align="center">
+    <tr>
+      <th>Task Name</th>
+      <th>Task Description</th>
+      <th>Task Status</th>
+      <th>Date Created</th>
+    </tr>
+    <tr>
+      <% @list.tasks.each do |task| %>
+      <td><%= task.name %></td>
+      <td><%= task.description %></td>
+      <td><%= task.status %></td>
+      <td><%= task.created_at %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>

@@ -41,7 +41,7 @@ text-decoration: none;
 }
 
 .navigation li a:hover{
-background-color: blue;
+background-color: #f4511e;
 }
 
 .container {
@@ -62,7 +62,7 @@ background-color: blue;
 HomePage
 *********/
 
-button {
+.list-new-button {
   display: inline-block;
   border-radius: 4px;
   background-color: #f4511e;
@@ -79,19 +79,20 @@ button {
   left: 490px;
 }
 
-button a{
+
+.list-new-button a{
   text-decoration: none;
   color: white;
 }
 
-button span {
+.list-new-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-button span:after {
+.list-new-button span:after {
   content: '»';
   position: absolute;
   opacity: 0;
@@ -100,13 +101,66 @@ button span:after {
   transition: 0.5s;
 }
 
-button:hover span {
+.list-new-button:hover span {
   padding-right: 25px;
 }
 
-button:hover span:after {
+.list-new-button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+#task-button {
+background-color: #f4511e;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+position: absolute;
+top: 50px;
+left: 10px;
+font-size: 16px;
+border-radius: 5px;
+}
+
+#task-button a{
+  text-decoration: none;
+  color: white;
+}
+
+/********
+New List/Task Form
+*********/
+
+.new-list-form input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.new-list-form input[type=submit] {
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-list-form input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#new-header {
+  display: block;
+  text-align: left;
 }
 
 
@@ -130,7 +184,7 @@ table {
 
  th {
   background-color: #4CAF50;
-  color: black;
+  color: white;
   height: 50px;
   padding: 15px;
 }
@@ -290,48 +344,6 @@ CONTENT
   -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
 }
 
-.user-icon, .pass-icon {
-  width: 46px;
-  height: 47px;
-  display: block;
-  position: absolute;
-  left: 0px;
-  padding-right: 2px;
-  z-index: -1;
-
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-}
-
-.user-icon {
-  top:153px;
-  background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/user-icon.png) no-repeat center;
-}
-
-.pass-icon {
-  top:201px;
-  background: rgba(65,72,72,0.75) url(http://www.demo.amitjakhu.com/login-form/images/pass-icon.png) no-repeat center;
-}
-
-email-icon {
-  top: 248px;
-  background: rgba(65,72,72,0.75) url() no-repeat center;
-}
-
-.content input:focus + div{
-  left: -46px;
-}
-
-/* Animation */
-.input, .user-icon, .pass-icon, .button {
-  transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-}
 
 /*******************
 FOOTER

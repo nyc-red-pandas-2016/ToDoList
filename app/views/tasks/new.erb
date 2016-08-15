@@ -1,0 +1,36 @@
+<div class='container'>
+    <% if @errors %>
+      <p>Please fix the following errors:</p>
+          <% @errors.each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+    <% end %>
+
+    <div>
+      <h3 id='new-header'>Create a new task:</h3>
+    </div>
+
+    <div>
+      <form class='new-list-form' action='/tasks' method='post' id="new-task">
+
+      <div>
+        <input type="text" name="task[name]"
+      placeholder="name">
+      </div>
+
+      <div>
+        <textarea name='task[description]' form='new-task' placeholder="Text here.." cols="70" rows="5"></textarea>
+      </div>
+
+      <input type="hidden" name='task[status]' value="<%= false %>">
+
+      <input type="hidden" name="task[user_id]" value="<%= current_user %>">
+
+      <input type="hidden" name='task[list_id]' value="<%= User.find(current_user).lists.last.id%>"
+
+      <div>
+      <input type="submit" value="Create" >
+      </div>
+      </form>
+    </div>
+</div>
