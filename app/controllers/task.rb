@@ -13,7 +13,7 @@ post '/tasks' do
   @list = User.find(current_user).lists.last
   @task = Task.new(params[:task])
   if @task.save
-    redirect '/tasks'
+    redirect "/lists/#{@list.id}"
   else
     @errors = @task.errors.full_messages
     erb :'tasks/new'

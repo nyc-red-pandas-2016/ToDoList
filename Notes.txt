@@ -42,3 +42,10 @@ Tag belongs to tagable polymorphic true
 
 Extra:
 Comments
+
+
+Finish
+- Edit/Update/Delete List/Tasks
+- Mark tasks complete/uncomplete
+- Add ajax for create/update/delete lists/tasks
+- Add/Delete Tags

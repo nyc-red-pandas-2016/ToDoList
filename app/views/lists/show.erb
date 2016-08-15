@@ -11,13 +11,13 @@
       <th>Task Status</th>
       <th>Date Created</th>
     </tr>
-    <tr>
       <% @list.tasks.each do |task| %>
+    <tr>
       <td><%= task.name %></td>
       <td><%= task.description %></td>
       <td><%= task.status %></td>
       <td><%= task.created_at %></td>
-      <% end %>
     </tr>
+      <% end %>
   </table>
 </div>

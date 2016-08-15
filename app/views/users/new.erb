@@ -1,31 +1,30 @@
  <div class="container" id="wrapper" >
-  <form id="register-form" class="login-register-form" action="/users" method="post">
-
     <div class="header">
       <h1>Register:</h1>
       <span>Please fill out the information below to register!</span>
-
-      <ul id="register-errors" class="header">
-        <% if @errors %>
-          <% @errors.each do |error| %>
-          <li><%= error %></li>
-          <% end %>
-        <% end %>
-      </ul>
-
     </div>
+
+  <ul id="register-errors" class="header">
+    <% if @errors %>
+      <% @errors.each do |error| %>
+      <li><%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <form id="register-form" class="login-register-form" action="/users" method="post">
+
 
     <div class="content">
       <div>
-        <input id="#username-input" class="input username" type="text" name="user[username]" placeholder="username">
+        <input id="#username-input" class="input username" type="text" name="user[username]" placeholder="username" required='true'>
       </div>
 
       <div>
-        <input id="#email-input" class="input password" type="text" name="user[email]" placeholder="email">
+        <input id="#email-input" class="input password" type="email" name="user[email]" placeholder="email" required='true'>
       </div>
 
       <div>
-        <input id="#password-input" class="input password" type="password" name="user[password]" placeholder="password">
+        <input id="#password-input" class="input password" type="password" name="user[password]" placeholder="password" required='true'>
       </div>
     </div>
 
