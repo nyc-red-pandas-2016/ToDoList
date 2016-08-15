@@ -1,9 +1,3 @@
-get '/lists' do
-  @user = User.find(current_user)
-  @lists = @user.lists
-end
-
-
 get '/lists/new' do
   erb :'lists/new'
 end
@@ -11,9 +5,16 @@ end
 post '/lists' do
   @list = List.new(params[:list])
   if @list.save
-    erb :'lists/show'
+    # params[:id] = @list.id
+    redirect "/lists/#{@list.id}"
   else
     @errors = @list.errors.full_messages
     erb :'lists/new'
   end
+end
+
+get '/lists/:id' do
+  @user = User.find(current_user)
+  @list = List.find(params[:id])
+  erb :'lists/show'
 end

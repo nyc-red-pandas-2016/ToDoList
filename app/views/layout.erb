@@ -24,8 +24,11 @@
         <ul>
       <% if current_user %>
         <li><a href="">Hi, <%= User.find(current_user).username %>!</a></li>
-        <li><a href="/users/logout">Logout</a>
-        <li><a href="/users/:id">Profile</a></li>
+
+        <li><a href="/logout">Logout</a></li>
+
+        <li><a href="/users/<%= current_user %>">Profile</a></li>
+
         <li><a href="/">Home</a></li>
       <% else %>
         <li><a href="/">Home</a></li>

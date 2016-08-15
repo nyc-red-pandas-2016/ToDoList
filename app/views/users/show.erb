@@ -10,7 +10,7 @@
       <th>Date Created</th>
     </tr>
     <tr>
-      <td><%= list.title %></td>
+      <td><a href='/lists/<%=list.id%>'><%= list.title %></a></td>
       <td><%= list.tasks.count %></td>
       <td><%= list.tasks.where(status: true).count%></td>
       <td><%= list.created_at %></td>

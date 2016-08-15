@@ -10,7 +10,7 @@ put '/users' do
   @user = User.find_by(email: params[:email])
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect '/'
+    redirect '/users/:id', locals: {id: session[:user_id]}
   else
     @errors = ["Invalid username or password"]
     erb :'users/login'
@@ -24,6 +24,7 @@ end
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
+    session[:user_id] = @user.id
     redirect '/'
   else
     @errors = @user.errors.full_messages
@@ -36,8 +37,7 @@ get '/users/:id' do
   erb :'users/show'
 end
 
-get '/users/logout' do
-  require_user
+get '/logout' do
   session.clear
   redirect '/'
 end
