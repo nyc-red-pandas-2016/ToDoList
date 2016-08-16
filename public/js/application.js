@@ -54,6 +54,8 @@ $(document).ready(function() {
 			data: data
 		}).done(function(response) {
 			$('.create_list').append(response);
+			$("#new_list").find("input[type=text], input[type=hidden]").val("");
+			$('.comment_form').hide();
 		})
 	});
 
@@ -76,7 +78,9 @@ $(document).ready(function() {
 		data: data
 	}).done(function(response) {
 		$('.create_tasks').append(response);
-		})
+		$("#new_task").find("input[type=text], input[type=hidden]").val("");
+		$('#task_form').hide();
+		});
 	});
 });
 
