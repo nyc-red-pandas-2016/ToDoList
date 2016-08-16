@@ -10,7 +10,7 @@ put '/users' do
   @user = User.find_by(email: params[:email])
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect '/users/#{@user.id}'
+    redirect "/users/#{@user.id}"
   else
     @errors = ["Invalid username or password"]
     erb :'users/login'

@@ -33,7 +33,10 @@ put '/lists/:id/tasks/:id' do
 end
 
 put '/lists/:id/tasks/:id/status' do
-  binding.pry
+  @task = Task.find(params[:id])
+  @list = @task.list
+  params[:complete] == 'true' ? @task.update(status: false) : @task.update(status: true)
+  erb :'lists/show'
 end
 
 delete '/lists/:id/tasks/:id' do

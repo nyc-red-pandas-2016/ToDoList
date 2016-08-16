@@ -45,8 +45,9 @@ Comments
 
 
 Finish
-- Edit/Update/Delete List/Tasks
-- Mark tasks complete/uncomplete
+- Edit/Update/Delete List/Tasks - DONE
+- Mark tasks complete/uncomplete - DONE
+- Fix routes
 - Add ajax for create/update/delete lists/tasks
 - Add/Delete Tags
 - create seed file
