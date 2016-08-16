@@ -2,7 +2,7 @@
 <h3>Here's your current tasks for the <%= @list.title %> list :</h3>
 
 <div >
-  <button id='task-button'><span><a href="/tasks/new">Create Task</a></span></button>
+  <button id='task-button'><span><a href="/lists/<%=@list.id%>/tasks/new">Create Task</a></span></button>
 </div>
   <table align="center">
     <tr>
@@ -14,7 +14,8 @@
       <% @list.tasks.each do |task| %>
     <tr>
       <td><%= task.name %>
-        <a href='/lists/<%=@list.id%>/tasks/<%=task.id %>/edit'><button>Edit</button></a>
+        <a href='/lists/<%=@list.id%>/tasks/<%=task.id %>/edit'>Edit</a>
+
         <form action='/lists/<%=@list.id %>/tasks/<%= task.id %>' method="post">
           <input name="_method" type="hidden" value="delete">
           <input type="submit" value="Delete">

@@ -11,7 +11,7 @@
     </div>
 
     <div>
-      <form class='new-list-form' action='/tasks' method='post' id="new-task">
+      <form class='new-list-form' action='/lists/<%=@list.id%>/tasks' method='post' id="new-task">
 
       <div>
         <input type="text" name="task[name]"
@@ -24,9 +24,7 @@
 
       <input type="hidden" name='task[status]' value="<%= false %>">
 
-      <input type="hidden" name="task[user_id]" value="<%= current_user %>">
-
-      <input type="hidden" name='task[list_id]' value="<%= User.find(current_user).lists.last.id%>"
+      <input type="hidden" name="task[user_id]" value="<%= current_user.id %>">
 
       <div>
       <input type="submit" value="Create" >

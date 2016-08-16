@@ -1,17 +1,20 @@
-get '/tasks' do
-  @user = User.find(current_user)
-  @list = @user.lists.last
+get '/lists/:id/tasks' do
+  # @user = User.find(current_user)
+  # @list = @user.lists.last
+  @list = List.find(params[:id])
+  @tasks= @list.tasks
+  erb :'tasks/new' #should be tasks/index
+end
+
+get '/lists/:id/tasks/new' do
+  @list = List.find(params[:id])
   erb :'tasks/new'
 end
 
-get '/tasks/new' do
-  erb :'tasks/new'
-end
 
-
-post '/tasks' do
-  @list = User.find(current_user).lists.last
-  @task = Task.new(params[:task])
+post '/lists/:id/tasks' do
+  @list = List.find(params[:id])
+  @task = @list.tasks.new(params[:task])#Task.new(params[:task])
   if @task.save
     redirect "/lists/#{@list.id}"
   else

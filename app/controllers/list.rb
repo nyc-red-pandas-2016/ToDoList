@@ -14,7 +14,6 @@ post '/lists' do
 end
 
 get '/lists/:id' do
-  @user = User.find(current_user)
   @list = List.find(params[:id])
   erb :'lists/show'
 end
@@ -27,7 +26,7 @@ end
 put '/lists/:id' do
   @list = List.find(params[:id])
   @list.update(title: params[:list][:title])
-  redirect "/users/#{current_user}"
+  redirect "/users/#{current_user.id}"
 end
 
 delete '/lists/:id' do

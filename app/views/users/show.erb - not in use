@@ -2,8 +2,7 @@
 <% if current_user %>
   <div class='container'>
   <h3>Here's your current todo lists:</h3>
-  <% @user = User.find(current_user) %>
-  <% @user.lists.each do |list| %>
+  <% current_user.lists.each do |list| %>
     <table align="center">
       <tr>
         <th>List Name</th>
