@@ -2,22 +2,18 @@
 <div class="title"><h1>Login to your account</h1></div>
 <form class='session-form' id='login-form' action='/login' method="post" >
 <span> Username </span>
-  <div class="input">
-
-      <i class="fa fa-user"></i>
-
-  <input type='text' placeholder="username" name="user[username]">
-  </div>
-  <br>
+  <div class="input"><
+    i class="fa fa-user"></i>
+    <input type='text' placeholder="username" name="user[username]">
+  </div><br>
   <span> Password </span>
   <div class="input pass">
-  <i class="fa fa-lock"></i>
-  <input type='password' placeholder="password" name="user[password]">
-  </div>
-  <br>
+    <i class="fa fa-lock"></i>
+    <input type='password' placeholder="password" name="user[password]">
+  </div><br>
   <input type='submit' class='submit' value='login'>
 </form>
-<div class='errors'></div>
+<div class='errors'>
 <% if @errors %>
   <ul>
   <% @errors.each do |e| %>
