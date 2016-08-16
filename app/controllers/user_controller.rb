@@ -34,6 +34,7 @@ get '/users/logout' do
 end
 
 get '/users/:id' do  
+  require_user
   @user = User.find(params[:id])
   erb :'/lists'
 end

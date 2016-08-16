@@ -1,14 +1,16 @@
 get '/lists/:id/tasks/new' do
+  require_user
   @list = List.find(params[:id])
   erb :'/tasks/new'
 end
 
 post '/lists/:id/tasks' do
+  require_user
   task = Task.new(params[:task])
   if task.save
     redirect "/lists/#{task.list_id}"
   else
-    @errors = user.errors.full_messages
+    @errors = task.errors.full_messages
     erb :'/tasks/new'
   end
 end 
@@ -26,11 +28,13 @@ put '/tasks/:id' do
   if @task.save
     redirect "/lists/#{@task.list_id}"
   else
+    @errors = @task.errors.full_messages
     erb :'/tasks/edit'
   end
 end
 
 delete '/tasks/:id' do
+  require_user
     temp = params[:task][:list_id]
     Task.find(params[:id]).destroy
     redirect "/lists/#{temp}"
