@@ -8,12 +8,15 @@ $(document).ready(function() {
 
   $('#add_task').on('submit','#new_task_form',function(event) {
     event.preventDefault();
-    var listID = $("#list_container").attr('id');
     $.ajax({
       type: "POST",
-      url: "/lists"+listID,
+      url: $("#new_task_form").attr("action"),
       data: $("#new_task_form").serialize()
     }).done(function(response){
+      var something= response.body;
+      $('.list').append("<li class='list-item'>"+something+"</li>" );
+      $('#new_task_form').find("input[type=text], textarea").val("");
+      // $('#task_button').show();
 
     });
   });

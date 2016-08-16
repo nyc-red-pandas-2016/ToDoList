@@ -15,6 +15,7 @@ end
 
 get '/lists/:id' do
   @list= List.find(params[:id])
+  @tasks= Task.where(list_id: @list.id)
   erb :'/lists/show'
 end
 

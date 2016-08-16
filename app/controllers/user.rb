@@ -34,3 +34,8 @@ get '/users/logout' do
   redirect '/'
 end
 
+get '/users/profile/:id' do
+  @user= User.find(params[:id])
+  @lists=List.where(user_id: @user.id)
+  erb :'/users/show'
+end

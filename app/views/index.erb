@@ -1,9 +1,9 @@
-<div>
-  <h1> Listing List of ToDo Lists Listed by Listed id </h1>
+<div class="container">
+  <h1> Listing List of ToDo Lists Listed by Listed ID </h1>
   <% if @lists %>
     <ul>
     <% @lists.each do |list| %>
-      <li> <a href="/lists/<%=list.id%>"><%= list.title %></a></li>
+      <li> <a href="/lists/<%=list.id%>"><%= list.title %></a></li><br>
     <% end %>
     <ul>
   <% end %>

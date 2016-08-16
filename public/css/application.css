@@ -1,3 +1,60 @@
 .hidden {
   display: none;
 }
+
+.container {
+    margin: 20px auto;
+    width: 700px;
+}
+
+h1, h2 {
+   font-weight: bold;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 48px;
+}
+
+#homerow {
+  background-color: #4E9CAF;
+  width: 100%;
+  height: 50px;
+  margin: auto;
+}
+
+#home_icon {
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+}
+
+#top_row {
+  display: inline-block;
+  height: 40px;
+  float: right;
+  width: 400px;
+  text-align: center;
+  position: relative;
+
+}
+
+.style_button{
+  text-decoration: none;
+  display: inline-block;
+  background: #4E9CAF;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  /*-webkit-box-shadow: inset 3px 2px 61px 2px rgba(68,84,189,0.87);
+  -moz-box-shadow: inset 3px 2px 61px 2px rgba(68,84,189,0.87);
+  box-shadow: inset 3px 2px 61px 2px rgba(68,84,189,0.87);
+*/
+}
