@@ -176,6 +176,13 @@ New List/Task Form
   text-align: left;
 }
 
+/*Ajax stuff*/
+.wrapper{
+  position: absolute;
+  width: 100%;
+  left: 270px;
+  bottom: -150px;
+}
 
 /********
 Profile Table

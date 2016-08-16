@@ -1,12 +1,20 @@
 #Create a new list
 get '/lists/new' do
-  erb :'lists/new'
+  if request.xhr?
+    erb :'lists/_new_list_form', layout: false
+  else
+    erb :'lists/new'
+  end
 end
 
 post '/lists' do
   @list = List.new(params[:list])
   if @list.save
-    redirect "/users/#{current_user.id}"
+    if request.xhr?
+      erb :'lists/_new_list_item', layout: false, locals: {list: @list}
+    else
+      redirect "/users/#{current_user.id}"
+    end
   else
     @errors = @list.errors.full_messages
     erb :'lists/new'
@@ -34,5 +42,5 @@ end
 #Delete a list
 delete '/lists/:id' do
   List.find(params[:id]).destroy
-  redirect '/'
+  redirect "/users/#{current_user.id}"
 end

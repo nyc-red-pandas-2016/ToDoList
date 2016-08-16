@@ -8,7 +8,11 @@ end
 #Creating new task route
 get '/lists/:id/tasks/new' do
   @list = List.find(params[:id])
-  erb :'tasks/new'
+  if request.xhr?
+    erb :'tasks/_new_task_form', layout:false
+  else
+    erb :'tasks/new'
+  end
 end
 
 

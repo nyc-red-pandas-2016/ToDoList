@@ -1,5 +1,1 @@
-<form class='new-list-form' action='/lists' method='post'>
-  <input type="text" name="list[title]" placeholder="List Title">
-  <input type="hidden" name="list[user_id]" value="<%= current_user.id %>">
-  <input type="submit" value="Create" >
-</form>
+<%= erb :'lists/_new_list_form_wrapper' %>
