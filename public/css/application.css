@@ -175,7 +175,7 @@ table {
     border-bottom: 1px solid #ddd;
     text-align: left;
     padding: 15px;
-    width: 60%;
+    width: 70%;
 
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -187,11 +187,13 @@ table {
   color: white;
   height: 50px;
   padding: 15px;
+
 }
 
 td {
   height: 50px;
   padding: 15px;
+  width:
 }
 
  tr:hover {

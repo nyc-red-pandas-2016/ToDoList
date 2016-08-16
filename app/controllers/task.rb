@@ -32,6 +32,10 @@ put '/lists/:id/tasks/:id' do
   redirect "/lists/#{params[:task][:list_id]}"
 end
 
+put '/lists/:id/tasks/:id/status' do
+  binding.pry
+end
+
 delete '/lists/:id/tasks/:id' do
   @list = Task.find(params[:id]).list
   Task.find(params[:id]).destroy
