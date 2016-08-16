@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+form input {
+  color:black;
+}
+
 body {
   color: white;
   background: white;

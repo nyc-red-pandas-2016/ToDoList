@@ -5,8 +5,30 @@
 		<h3 id="create_list" ><a href="/lists/new">Add a List</a></h3>
 	<% end %>
 
+	<div class="comment_form">
+
+	  <h1><a href='/'>Create your new List!</a><h1>
+
+	  	<div class="errors">
+		  	<% if @errors %>
+		    <% @errors.each do |error| %>
+		      <ul>
+		        <li><%= error %></li>
+		      </ul>
+		      <% end %>
+		    <% end %>
+	    </div>
+
+		<form id="new_list" action="/lists" method="POST">
+			<input type="hidden" name="list[user_id]" value="<%= current_user.id %>">
+			<div class="row title">
+				<input type="text" name="list[title]" placeholder="Title"> </div>
+			<input type="submit" name="" value="Create List">
+		</form>
+	</div>
+
 	<ol class="create_list">
-		<% @all_lists.each do |list| %>
+		<% @lists.each do |list| %>
 		<li><a href="/lists/<%= list.id %>"><%= list.title %></a>
 			<ul>
 				<li>created by <a href="/users/<%= list.user.id %>"><%= list.user.username %></a></li>

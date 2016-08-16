@@ -1,0 +1,9 @@
+<div class="container">
+	<form id="new_list" action="/lists" method="POST">
+		<input type="hidden" >
+		<input type="hidden" name="list[user_id]" value="<%= current_user.id %>">
+		<div class="row title">
+			<input type="text" name="list[title]" placeholder="Title"> </div>
+		<input type="submit" name="" value="Create List">
+	</form>
+</div>

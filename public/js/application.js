@@ -38,8 +38,23 @@ $(document).ready(function() {
 	});
 
 	// Creating new list
+	$('.comment_form').hide();
+
 	$('#create_list').on("click", function(event) {
 		event.preventDefault();
+		$('.comment_form').toggle();
+	});
+
+	$('#new_list').on("submit", function(event) {
+		event.preventDefault();
+		var data = $(this).serialize();
+		$.ajax ({
+			method: "post",
+			url: "/lists",
+			data: data
+		}).done( function(response) {
+			alert("Data saved: " + response);
+		});
 	});
 });
 
