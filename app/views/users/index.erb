@@ -1,0 +1,8 @@
+<h1>Welcome, <%= current_user.username%></h1>
+<ul>
+<% current_user.lists.each do |list| %>
+<li><a href="/lists/<%=list.id%>"><%=list.name %></a></li>
+<% end %>
+</ul>
+<br>
+<a href="/lists/new">Add a List</a>

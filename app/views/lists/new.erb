@@ -1,0 +1,6 @@
+<form method="POST" action="/lists">
+  <label for="name">Name:</label>
+  <input type="text" name="list[name]">
+  <input type="hidden" name="list[user_id]" value="<%=current_user.id %>">
+  <input type="submit" value="Create List">
+</form>
