@@ -2,6 +2,23 @@
 
 <ul>
 <% @list.tasks.each do |task| %>
-<li><%= task.task_name %></li>
+  <% if task.completed == false%>
+    <li><%= task.task_name %>
+      <form method="POST" action="/tasks/<%=task.id%>/complete">
+        <input type="hidden" name="_method" value="put">
+        <input type="checkbox">completed</input>
+        <input type="submit">
+      </form>
+      <p>
+        <form method="POST" action="/tasks/<%=task.id%>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete">
+        </form>
+      </p>
+      <a href="/lists/<%=@list.id%>/tasks/<%=task.id%>/edit">Edit Task</a>
+    </li>
+  <% end %>
 <% end %>
 </ul>
+
+<a href="/lists/<%=@list.id %>/tasks/new">Add a Task</a>

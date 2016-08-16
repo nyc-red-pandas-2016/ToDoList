@@ -1,4 +1,5 @@
 get '/lists/new' do
+  redirect '/' unless logged_in?
   erb :'/lists/new'
 end
 
@@ -8,6 +9,7 @@ get '/lists/:id' do
 end
 
 post '/lists' do
+  redirect '/' unless logged_in?
   @list = List.new(params[:list])
   if @list.save
     redirect "/users/#{current_user.id}"

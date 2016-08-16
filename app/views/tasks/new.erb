@@ -1,0 +1,6 @@
+<form method="POST" action="/tasks">
+  <label for="task_name">Task to Add:</label>
+  <input type="text" name="task[task_name]">
+  <input type="hidden" name="task[list_id]" value="<%= @list.id %>">
+  <input type="submit" value="Add Task">
+</form>
