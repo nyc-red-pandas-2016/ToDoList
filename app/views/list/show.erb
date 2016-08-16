@@ -1,0 +1,17 @@
+<div>
+  <h1><%=@list.name%></h1>
+  <p><%=@list.user.username%></p>
+
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= task.description %>
+        <% if task.complete == true %>
+          - Completed
+        <% else %>
+         - Pending
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

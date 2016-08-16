@@ -18,6 +18,16 @@
   <title></title>
 </head>
 <body>
+  <ul>
+  <li><a href="/">Home</a></li>
+    <% if current_user %>
+      <li><a href="/users/<%=current_user%>"><%=User.find(current_user).username%></a></li>
+      <li><a href="/users/logout">Log Out</a></li>
+    <% else %>
+      <li><a href="/users/register">Register</a></li>
+      <li><a href="/users/login">Log In</a></li>
+    <% end %>
+  </ul>
   <%= yield %>
 </body>
 </html>

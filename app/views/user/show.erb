@@ -1,0 +1,34 @@
+<div>
+  <h1> <%= @user.username %> <h1>
+
+  <h2> Lists </h2>
+  <ul>
+    <% @lists.each do |list| %>
+      <li id="<%= list.id %>">
+        <a id="list_link" href="/lists/<%=list.id%>"><%= list.name %></a>
+        <% if @user.id == current_user %>
+          <form id="list-name-change-form" action="/lists/<%=list.id%>/edit" method="get">
+            <input type="submit" value="Change List's Name">
+            <input id="new-name-of-list" name="list[name]" type="text">
+            <input name="_method" value="put" type="hidden">
+          </form>
+        <% end %>
+      </li>
+
+    <% end %>
+  </ul>
+
+  <h2> Completed Tasks </h2>
+  <ul>
+    <% @completed_tasks.each do |task| %>
+      <li><%= task.description %></li>
+    <% end %>
+  </ul>
+
+  <h2> Pending Tasks </h2>
+    <ul>
+    <% @pending_tasks.each do |task| %>
+      <li><%= task.description %></li>
+    <% end %>
+  </ul>
+</div>
