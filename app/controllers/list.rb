@@ -18,3 +18,19 @@ get '/lists/:id' do
   @list = List.find(params[:id])
   erb :'lists/show'
 end
+
+get '/lists/:id/edit' do
+  @list = List.find(params[:id])
+  erb :'lists/edit'
+end
+
+put '/lists/:id' do
+  @list = List.find(params[:id])
+  @list.update(title: params[:list][:title])
+  redirect "/users/#{current_user}"
+end
+
+delete '/lists/:id' do
+  List.find(params[:id]).destroy
+  redirect '/'
+end

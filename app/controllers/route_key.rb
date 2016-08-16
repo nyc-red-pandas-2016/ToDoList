@@ -1,3 +1,5 @@
+#LIST Routes
+
 # get '/lists'  do
 #   index
 # end
@@ -17,7 +19,6 @@
 #     errors
 #     erb :'lists/new'
 # end
-
 
 # get '/lists/:id/edit' do
 #   erb :'lists/edit'

@@ -32,7 +32,6 @@ post '/users' do
   end
 end
 
-# How do I get the user's id in this route?
 get '/users/:id' do
   erb :'users/show'
 end

@@ -13,7 +13,13 @@
     </tr>
       <% @list.tasks.each do |task| %>
     <tr>
-      <td><%= task.name %></td>
+      <td><%= task.name %>
+        <a href='/lists/<%=@list.id%>/tasks/<%=task.id %>/edit'><button>Edit</button></a>
+        <form action='/lists/<%=@list.id %>/tasks/<%= task.id %>' method="post">
+          <input name="_method" type="hidden" value="delete">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
       <td><%= task.description %></td>
       <td><%= task.status %></td>
       <td><%= task.created_at %></td>

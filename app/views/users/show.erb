@@ -1,20 +1,31 @@
-<% @user = User.find(current_user) %>
-<% @user.lists.each do |list| %>
-<div class='container'>
-<h3>Here's your current todo lists:</h3>
-  <table align="center">
-    <tr>
-      <th>List Name</th>
-      <th>Total Tasks</th>
-      <th>Completed Tasks</th>
-      <th>Date Created</th>
-    </tr>
-    <tr>
-      <td><a href='/lists/<%=list.id%>'><%= list.title %></a></td>
-      <td><%= list.tasks.count %></td>
-      <td><%= list.tasks.where(status: true).count%></td>
-      <td><%= list.created_at %></td>
-    </tr>
-  </table>
-</div>
+
+<% if current_user %>
+  <div class='container'>
+  <h3>Here's your current todo lists:</h3>
+  <% @user = User.find(current_user) %>
+  <% @user.lists.each do |list| %>
+    <table align="center">
+      <tr>
+        <th>List Name</th>
+        <th>Total Tasks</th>
+        <th>Completed Tasks</th>
+        <th>Date Created</th>
+      </tr>
+      <tr>
+        <td>
+          <a href='/lists/<%=list.id%>'><%= list.title %></a>
+          <a href='/lists/<%=list.id%>/edit'><button>Edit</button></a>
+          <!-- <a href='/lists/<%=list.id%>/edit'>Edit</a> -->
+          <form action='/lists/<%=list.id %>' method="post">
+            <input name="_method" type="hidden" value="delete">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+        <td><%= list.tasks.count %></td>
+        <td><%= list.tasks.where(status: true).count%></td>
+        <td><%= list.created_at %></td>
+      </tr>
+    </table>
+  </div>
+  <% end %>
 <% end %>
