@@ -1,9 +1,24 @@
 <div class="container">
 	<h1><a href='/'><%= @user.username %></a></h1>
+  <img src="http://i.imgur.com/IkLetkK.png" style="width:250px;height:228px;">
 
 	<h2>Email: <%= @user.email %> </h2>
 	<h2>Total Lists Created: <%= @user.lists.count %> </h2>
 	<h2>Total Tasks Created: <%= @user.tasks.count %> </h2>
+
+  <h2>Lists:</h2>
+  <ol>
+    <% @user.lists.each do |list| %>
+      <li><a href="/lists/<%= list.id %>"><%= list.title %></a></li>
+    <% end %>
+  </ol>
+
+  <h2>Tasks:</h2>
+  <ol>
+    <% @user.tasks.each do |task| %>
+      <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+    <% end %>
+  </ol>
 
   <% 30.times do %>
     <br>
