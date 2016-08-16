@@ -13,10 +13,12 @@
     <% end %>
   </ol>
 
-  <h2>Tasks:</h2>
+  <h2>Completed Tasks:</h2>
   <ol>
     <% @user.tasks.each do |task| %>
-      <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+      <% if task.status == "true" %>
+        <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+      <% end %>
     <% end %>
   </ol>
 
