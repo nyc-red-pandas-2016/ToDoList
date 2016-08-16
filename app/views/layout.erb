@@ -25,7 +25,7 @@
   <div id="top_row">
       <% if current_user %>
         <a class="style_button" href="/users/profile/<%=current_user%>"><%= current_user_name %>'s Profile</a>
-        <a class="style_button" href="/lists/create">Create A List!</a>
+        <a class="style_button" href="/lists/new">Create A List!</a>
         <a class="style_button" href="/users/logout">Logout</a>
       <% else %>
         <a class="style_button" href="/users/new">Register</a>

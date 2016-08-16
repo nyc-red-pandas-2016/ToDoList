@@ -10,6 +10,7 @@
         <h3><%= list.title %>
           <% if @user.id == current_user %>
           <a href="/lists/<%=list.id%>">Edit</a>
+          <a href="/lists/<%=list.id%>/edit">Edit This</a>
           <% end %> </h3>
         <ul>
           <% list.tasks.each do |task| %>

@@ -31,5 +31,9 @@
     <input type="submit" value="Create Task" id="task_submit_button" class="style_button">
   </form>
   </div>
+  <form action="/lists/<%= @list.id %>" method="POST">
+    <input name="_method" type="hidden" value="DELETE">
+    <input type="submit" class="style_button" value="Delete List">
+  </form>
 
 </div>
