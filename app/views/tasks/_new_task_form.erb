@@ -1,0 +1,16 @@
+<form class='new-list-form' action='/lists/<%=@list.id%>/tasks' method='post' id="new-task">
+  <!-- Task Name -->
+  <div>
+    <input type="text" name="task[name]" placeholder="Task name">
+  </div>
+  <!-- Task decscription -->
+  <div>
+    <textarea name='task[description]' form='new-task' placeholder="Text here.." cols="70" rows="5"></textarea>
+  </div>
+    <!-- Hidden values -->
+    <input type="hidden" name='task[status]' value="<%= false %>">
+    <input type="hidden" name="task[user_id]" value="<%= current_user.id %>">
+  <div>
+    <input type="submit" value="Create" >
+  </div>
+</form>

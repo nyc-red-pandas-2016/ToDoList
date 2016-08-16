@@ -8,7 +8,6 @@
     <button class='list-new-button'><span><a href="/lists/new">Create List</a></span></button>
 
     <h3>Here's your current todo lists:</h3>
-    <% current_user.lists.each do |list| %>
       <table align="center">
         <tr>
           <th>List Name</th>
@@ -17,8 +16,9 @@
           <th>Date Created</th>
         </tr>
         <tr>
+      <% current_user.lists.each do |list| %>
           <td>
-            <a href='/lists/<%=list.id%>'><%= list.title %></a>
+            <a href='/lists/<%=list.id%>/tasks'><%= list.title %></a>
             <a href='/lists/<%=list.id%>/edit'><button>Edit</button></a>
             <!-- <a href='/lists/<%=list.id%>/edit'>Edit</a> -->
             <form action='/lists/<%=list.id %>' method="post">
@@ -30,7 +30,7 @@
           <td><%= list.tasks.where(status: true).count%></td>
           <td><%= list.created_at %></td>
         </tr>
+      <% end %>
       </table>
   </div>
-  <% end %>
 <% end %>

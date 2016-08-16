@@ -19,21 +19,17 @@
 </head>
 <body>
   <div>
-      <nav class='navigation'>
-        <h2 class='logo'>ToDo<em>List</em></h2>
-        <ul>
-      <% if login? %>
-        <li><a href="/users/<%= current_user.id %>">Hi, <%= current_user.username %>!</a></li>
-
-        <li><a href="/logout">Logout</a></li>
-
-        <!-- <li><a href="/users/<%= current_user.id %>">Profile</a></li> -->
-
-        <li><a href="/users/<%= current_user.id %>">Home</a></li>
-      <% else %>
-        <li><a href="/">Home</a></li>
-        <li><a href="/users/login">Login</a></li>
-        <li><a href="/users/new">Register</a></li>
+    <nav class='navigation'>
+      <h2 class='logo'>ToDo<em>List</em></h2>
+      <ul>
+        <% if login? %>
+          <li><a href="/users/<%= current_user.id %>">  Hi, <%= current_user.username %>!</a></li>
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/users/<%= current_user.id %>">  Home</a></li>
+        <% else %>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users/login">Login</a></li>
+          <li><a href="/users/new">Register</a></li>
       </ul>
       <% end %>
     </nav>

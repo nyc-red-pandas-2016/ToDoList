@@ -1,11 +1,11 @@
+#Show all tasks for list
 get '/lists/:id/tasks' do
-  # @user = User.find(current_user)
-  # @list = @user.lists.last
   @list = List.find(params[:id])
   @tasks= @list.tasks
-  erb :'tasks/new' #should be tasks/index
+  erb :'lists/show' #should be index instead of show
 end
 
+#Creating new task route
 get '/lists/:id/tasks/new' do
   @list = List.find(params[:id])
   erb :'tasks/new'
@@ -14,15 +14,16 @@ end
 
 post '/lists/:id/tasks' do
   @list = List.find(params[:id])
-  @task = @list.tasks.new(params[:task])#Task.new(params[:task])
+  @task = @list.tasks.new(params[:task])
   if @task.save
-    redirect "/lists/#{@list.id}"
+    redirect "/lists/#{@list.id}/tasks"
   else
     @errors = @task.errors.full_messages
     erb :'tasks/new'
   end
 end
 
+#Editing a task route
 get '/lists/:id/tasks/:id/edit' do
   @task = Task.find(params[:id])
   @list = @task.list
@@ -35,6 +36,7 @@ put '/lists/:id/tasks/:id' do
   redirect "/lists/#{params[:task][:list_id]}"
 end
 
+#Change a tasks status
 put '/lists/:id/tasks/:id/status' do
   @task = Task.find(params[:id])
   @list = @task.list
@@ -42,8 +44,9 @@ put '/lists/:id/tasks/:id/status' do
   erb :'lists/show'
 end
 
+#Delete a task
 delete '/lists/:id/tasks/:id' do
   @list = Task.find(params[:id]).list
   Task.find(params[:id]).destroy
-  redirect "/lists/#{@list.id}"
+  redirect "/lists/#{@list.id}/tasks"
 end

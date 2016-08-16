@@ -11,24 +11,6 @@
     </div>
 
     <div>
-      <form class='new-list-form' action='/lists/<%=@list.id%>/tasks' method='post' id="new-task">
-
-      <div>
-        <input type="text" name="task[name]"
-      placeholder="name">
-      </div>
-
-      <div>
-        <textarea name='task[description]' form='new-task' placeholder="Text here.." cols="70" rows="5"></textarea>
-      </div>
-
-      <input type="hidden" name='task[status]' value="<%= false %>">
-
-      <input type="hidden" name="task[user_id]" value="<%= current_user.id %>">
-
-      <div>
-      <input type="submit" value="Create" >
-      </div>
-      </form>
+      <%= erb :'tasks/_new_task_form', locals: {list: @list} %>
     </div>
 </div>
