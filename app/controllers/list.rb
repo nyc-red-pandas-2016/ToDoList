@@ -33,16 +33,28 @@ get '/lists/:id' do
 	end
 end
 
-put '/lists/:id' do
-  @list = List.find(params[:id]) 
-  @list.assign_attributes(params[:list]) 
-
-  if @list.save 
-    redirect '/lists' 
-  else
-    erb :'lists/edit' 
-  end
-
+get '/lists/:id/edit' do
+	@list = List.find(params[:id])
+	erb :'lists/edit'
 end
 
+put '/lists/:id' do
+	if logged_in?
+		@list = List.find(params[:id]) 
+		@list.assign_attributes(params[:list]) 
+
+		if @list.save 
+		    redirect "/lists/#{@list.id}" 
+		else
+		    erb :'lists/edit' 
+		end
+	else
+		redirect '/'
+	end
+end
+
+delete '/lists/:id' do
+    List.find(params[:id]).destroy
+    redirect '/lists'
+end
 
