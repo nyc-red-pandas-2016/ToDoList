@@ -6,8 +6,7 @@
     <li><%= task.task_name %>
       <form method="POST" action="/tasks/<%=task.id%>/complete">
         <input type="hidden" name="_method" value="put">
-        <input type="checkbox">completed</input>
-        <input type="submit">
+        <input type="submit" value="Mark Complete">
       </form>
       <p>
         <form method="POST" action="/tasks/<%=task.id%>">

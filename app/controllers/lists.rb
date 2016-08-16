@@ -1,6 +1,10 @@
 get '/lists/new' do
   redirect '/' unless logged_in?
-  erb :'/lists/new'
+  if request.xhr?
+    erb :'/lists/new', layout: false
+  else
+    erb :'/lists/new'
+  end
 end
 
 get '/lists/:id' do
@@ -11,10 +15,14 @@ end
 post '/lists' do
   redirect '/' unless logged_in?
   @list = List.new(params[:list])
-  if @list.save
-    redirect "/users/#{current_user.id}"
-  else
-    @errors = @list.errors.full_messages
-    erb :'/lists/new'
-  end
+    if @list.save
+      if request.xhr?
+        erb :'lists/_add_list', layout: false
+      else
+        redirect "/users/#{current_user.id}"
+      end
+    else
+      @errors = @list.errors.full_messages
+      erb :'/lists/new'
+    end
 end
