@@ -1,17 +1,26 @@
-<div>
+<div class="container">
   <h1><%=@list.name%></h1>
   <p><%=@list.user.username%></p>
 
-  <ul>
+  <ul class="list-of-tasks">
     <% @tasks.each do |task| %>
-      <li>
-        <%= task.description %>
-        <% if task.complete == true %>
-          - Completed
-        <% else %>
-         - Pending
-        <% end %>
-      </li>
+      <%= erb :'list/_todolist_task', locals: {task: task, list: @list} %>
+
     <% end %>
+
   </ul>
+
+  <% if @list.user.id == current_user %>
+    <h2> Add a Task </h2>
+    <form action="/tasks/new" method="post">
+      <label for="task[description]">Description: </label>
+      <input name="task[description]" type="text"><br>
+      <label for "task[complete]">Complete: </label>
+      <input name="task[complete]" type="checkbox"><br>
+      <label for "tags">Tags: </label>
+      <input name="tags" type="text"><br>
+      <input name="task[list_id]" value="<%= @list.id %>" type="hidden">
+      <input type="submit" value="Submit">
+    </form>
+  <% end%>
 </div>

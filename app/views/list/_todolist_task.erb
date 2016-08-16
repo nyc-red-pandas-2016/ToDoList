@@ -1,0 +1,41 @@
+<li>
+
+  <%= task.description %>
+
+  <% if task.complete == true %>
+    - Completed
+  <% else %>
+   - Pending
+  <% end %>
+  <br>
+  Tags:
+  <% task.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+
+  <% if list.user.id == current_user %>
+  <form id="modify-task-form" action="/tasks/<%= task.id %>" method="post">
+    <label for="task[description]">New Description: </label>
+    <input name="task[description]" value="<%=task.description%>" type="text">
+    <label for "task[complete]">Complete: </label>
+    <% if task.complete == true %>
+      <input name="task[complete]" type="checkbox" checked="checked"><br>
+    <% else %>
+      <input name="task[complete]" type="checkbox"><br>
+    <% end %>
+    <label for "tags">Tags: </label>
+    <input name="tags" type="text">
+    <input name="task[list_id]" value="<%= list.id %>" type="hidden">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="Modify Task">
+  </form>
+
+  <form id="delete-task-form" action="/tasks/<%= task.id %>" method="post">
+    <input name="task[list_id]" value="<%= list.id %>" type="hidden">
+    <input type="hidden" name="_method" value="delete">
+    <input id="delete-task-button" type="submit" value="Delete Task">
+  </form>
+
+<% end%>
+
+</li>
