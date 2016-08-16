@@ -31,5 +31,5 @@ delete '/tasks/:id' do
     @task = Task.find(params[:id])
     list_id = @task.list.id
     Task.find(params[:id]).destroy
-    redirect '/lists/#{list_id}'
+    redirect "/lists/#{list_id}"
 end
