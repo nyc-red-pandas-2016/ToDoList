@@ -20,7 +20,7 @@ end
 
 get '/lists/:id' do
   @list = List.find(params[:id])
-  # @tasks = @list.tasks
+  @tasks = @list.tasks
   erb :'/lists/display_list'
 end
 

@@ -1,0 +1,30 @@
+<div class="individual-task">
+<li>
+  <%= task.description %>
+  <% if task.complete == true %>
+    <img src="http://icons.iconarchive.com/icons/graphicrating/koloria/32/Checkmark-icon.png">
+  <% else %>
+   <img src="http://www.calszone.com/wp-content/uploads/red-x.png">
+  <% end %>
+</li>
+<% if current_user %>
+<% if list.user.id == current_user.id %>
+  <% if task.complete == false %>
+  <form id="edit-task-form" action="/tasks/<%= task.id %>" method="post">
+    <input type="hidden" name="task[id]" value="<%= task.id %>">
+    <input type="hidden" name="task[description]" value="<%= task.description %>">
+    <input type="hidden" name="task[list_id]" value="<%= task.list_id %>">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="task[complete]" value="true">
+    <button type="submit">complete</button>
+  </form>
+    <% end %>
+  <form id="delete-task-form" method="post" action="/tasks/<%=task.id%>">
+<input name="task[list_id]" value="<%= list.id %>" type="hidden">
+  <input type="hidden" name="_method" value="delete"/>
+  <br><button type="submit">delete</button>
+  </form>
+
+  <% end %>
+<% end %>
+</div>

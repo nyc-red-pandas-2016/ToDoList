@@ -35,9 +35,8 @@ get '/users/logout' do
 end
 
 get '/users/:id' do
-
   @user = User.find(params[:id])
   @lists = @user.lists
-  # @tasks = @lists.tasks
+  @tasks = @user.tasks
    erb :'users/show'
 end

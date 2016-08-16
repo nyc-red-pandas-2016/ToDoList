@@ -18,11 +18,13 @@
     <th><h4>Task</h4></th>
     <th><h4>Date Added</h4></th>
   </tr>
+  <% @tasks.each do |task| %>
     <tr>
       <td>
-        task
+        <% if task.complete %>
+      <a href="/lists/<%= task.list.id %>"><%= task.description %></a></td>
+    <td><%= task.created_at.strftime("%b %d, 20%y") %><% end %><% end %>
       </td>
-    <td>date</td>
   </tr>
 </table>
 <h3>Tasks In Progress</h3>
@@ -31,11 +33,13 @@
     <th><h4>Task</h4></th>
     <th><h4>Date Added</h4></th>
   </tr>
+  <% @tasks.each do |task| %>
     <tr>
       <td>
-        task
+        <% if task.complete == false %>
+      <a href="/lists/<%= task.list.id %>"><%= task.description %></a></td>
+    <td><%= task.created_at.strftime("%b %d, 20%y") %><% end %><% end %>
       </td>
-    <td>date</td>
   </tr>
 </table>
 </div>

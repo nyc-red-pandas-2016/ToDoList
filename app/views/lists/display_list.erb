@@ -7,20 +7,21 @@
   <input type="hidden" name="_method" value="delete"/>
   <br><button type="submit">Delete List</button>
   </form>
-  <% end %>
-<% end %>
-<ul>
-  tasks go here
-</ul>
-<h4>Add a task:</h4>
-  <form action="/tasks" method="post">
-    <label for="task">Task:</label>
-    <input type="text" name="task[description]"></div>
-    <br><br>
+  <h4>Add task:</h4>
+  <form action="/tasks/new" method="post">
     <label for="task">Task:</label>
     <input type="text" name="task[description]">
-    <br><br>
+    <br>
     <input type="hidden" name="task[list_id]" value="<%= @list.id %>">
     <br><br><button type="submit">Add Task</button>
   </form>
+  <% end %>
+<% end %>
+<ul class="tasks-list">
+    <h4>Tasks:</h4>
+    <% @tasks.each do |task| %>
+      <%= erb :'/lists/display_tasks', locals: {task: task, list: @list} %>
+    <% end %>
+</ul>
 <div>
+
