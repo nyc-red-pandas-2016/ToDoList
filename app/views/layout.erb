@@ -15,9 +15,21 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>To Do List</title>
 </head>
 <body>
-  <%= yield %>
+  <nav id="nav">
+    <ul class="nav-list">
+      <% if current_user %>
+        <li><a href="/users/<%= current_user.id %>">View Profile</a></li>
+        <li><a href="/users/logout">Logout</a></li>
+      <% else %>
+        <li><a href="/users/login">Login</a></li>
+        <li><a href="/users/new">Register</a></li>
+      <% end %>
+        <li><a href="/">Home</a></li>
+    </ul>
+  </nav>
+    <%= yield %>
 </body>
 </html>

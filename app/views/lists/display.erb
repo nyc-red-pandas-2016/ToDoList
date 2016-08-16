@@ -1,0 +1,18 @@
+<h2><%= @list.list_name %></h2>
+  <a href="/lists/<%= @list.id %>/edit">Edit List Name</a>
+
+    <ul>
+      <% @tasks.each do |task| %>
+        <h4><%= task.task_name %></h4>
+        <li><%= task.status %></li>
+        <a href="/tasks/<%= task.id%>/edit">Edit</a>
+      <% end %>
+    </ul>
+
+    <a href="/lists/<%=@list.id%>/tasks/new">Add Item to List</a>
+
+  <form action="/lists/<%= @list.id %>" method="POST">
+    <input name="_method" type="hidden" value="DELETE">
+    <input type="submit" value="Delete List">
+  </form>
+

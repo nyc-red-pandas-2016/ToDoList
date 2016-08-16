@@ -1,0 +1,7 @@
+<div class="container">
+  <% @user.lists.each do |list| %>
+    <a href="/lists/<%= list.id %>"><%=list.list_name%></a>
+  <% end %>
+
+  <a href="/lists/new">Create New List</a>
+</div>
