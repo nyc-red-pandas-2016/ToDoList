@@ -23,7 +23,7 @@ post '/users/login' do
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
   else
-    @error = "Please enter a valid e-mail/password combination."
+    @errors = ["Please enter a valid e-mail/password combination."]
     erb :'/users/login'
   end
 end

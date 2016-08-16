@@ -2,23 +2,20 @@
 
   <h1><a href='/'>Lets Get You Signed Up</a><h1>
 
-  	<div class="errors">
-	  	<% if @errors %>
-	    <% @errors.each do |error| %>
-	      <ul>
-	        <li><%= error %></li>
-	      </ul>
-	      <% end %>
-	    <% end %>
-    </div>
+	<%= erb :'_errors', locals: {errors: @errors} %>
 
 	<form id="register" action="/users" method="POST">
 		<div class="row email">
-			<input type="text" name="user[email]" placeholder="Email"> </div>
-		<div class="row username">
-			<input type="text" name="user[username]" placeholder="Username"></div>
+			<input type="email" name="user[email]" placeholder="Email" required='true'> </div>
+		<div class="row username" >
+			<input type="text" name="user[username]" placeholder="Username" required='true'></div>
 		<div class="row pass">
-			<input type="password" name="user[password]" placeholder="Password"></div>
+			<input type="password" name="user[password]" placeholder="Password" required='true'></div>
 		<input type="submit" name="" value="Register">
 	</form>
+
+	<% 6.times do %>
+		<br>
+	<% end %>
+
 </div>

@@ -2,11 +2,7 @@
 
   <h1><a href='/'>Welcome back!</a><h1>
 
-  	<div class="errors">
-	  	<% if @error %>
-			<p><%= @error %></p>
-	    <% end %>
-    </div>
+  <%= erb :'_errors', locals: {errors: @errors} %>
 
 	<form id="login" action="/users/login" method="POST">
 		<div class="row username">
@@ -15,4 +11,9 @@
 			<input type="password" name="password" placeholder="Password"></div>
 		<input type="submit" name="" value="Log In">
 	</form>
+
+  <% 6.times do %>
+    <br>
+  <% end %>
+
 </div>

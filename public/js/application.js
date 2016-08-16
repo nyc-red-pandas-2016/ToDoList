@@ -52,9 +52,9 @@ $(document).ready(function() {
 			method: "post",
 			url: "/lists",
 			data: data
-		}).done( function(response) {
-			alert("Data saved: " + response);
-		});
+		}).done(function(response) {
+			$('.create_list').append(response);
+		})
 	});
 });
 

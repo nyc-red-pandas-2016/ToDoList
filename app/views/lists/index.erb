@@ -9,15 +9,7 @@
 
 	  <h1><a href='/'>Create your new List!</a><h1>
 
-	  	<div class="errors">
-		  	<% if @errors %>
-		    <% @errors.each do |error| %>
-		      <ul>
-		        <li><%= error %></li>
-		      </ul>
-		      <% end %>
-		    <% end %>
-	    </div>
+	<%= erb :'_errors', locals: {errors: @errors} %>
 
 		<form id="new_list" action="/lists" method="POST">
 			<input type="hidden" name="list[user_id]" value="<%= current_user.id %>">
@@ -29,11 +21,7 @@
 
 	<ol class="create_list">
 		<% @lists.each do |list| %>
-		<li><a href="/lists/<%= list.id %>"><%= list.title %></a>
-			<ul>
-				<li>created by <a href="/users/<%= list.user.id %>"><%= list.user.username %></a></li>
-			</ul>
-		</li>
+			<%= erb :'lists/_list', locals: {list: list} %>
 		<% end %>
 	</ol>
 

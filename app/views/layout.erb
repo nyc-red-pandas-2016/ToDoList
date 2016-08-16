@@ -31,7 +31,6 @@
         <nav>
             <ul>
                 <li><a href="/lists">Lists</a></li>
-                <li><a href="/tasks/index">Tasks</a></li>
                 <% if current_user %>
                 <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
                 <li><a href="/users/logout">Log Out</a></li>
@@ -41,7 +40,7 @@
                 <% end %>
             </ul>
         </nav>
-    </div> 
+    </div>
 </header>
 
   <%= yield %>

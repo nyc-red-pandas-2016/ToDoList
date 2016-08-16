@@ -1,16 +1,18 @@
 <div class='container'>
-	<h2><%= @list.title %></h2>
-	<h4><a href="/lists/<%= @list.id %>/edit">Edit List</a></h4>	
+  <h1><%= @list.title %></h1>
+  <h4><a href="/lists/<%= @list.id %>/edit">Edit List</a></h4>
 
-	<h4>All tasks in this list:</h4>
-	<ol>
-		<% @tasks.each do |task| %>
-			<li><%= task.name %></li>
-		<% end %>
-	</ol>
+  <h3>All tasks in this list:</h3>
+  <h4><a href="/lists/<%= @list.id %>/tasks/new">Add a task</a></h4>
 
-	<% 30.times do %>
-		<br>
-	<% end %>
+  <ol>
+    <% @tasks.each do |task| %>
+      <li><%= task.name %></li>
+    <% end %>
+  </ol>
+
+  <% 30.times do %>
+    <br>
+  <% end %>
 
 </div>
