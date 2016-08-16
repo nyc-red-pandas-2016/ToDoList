@@ -26,7 +26,7 @@
       <li> <a href="/users/<%= session[:user_id].to_s %>"> <%= User.find(session[:user_id]).username %> </a> </li>
       <li> <a href="/logout"> Logout </a> </li>
       <% else %>
-      <li> <a href="/login"> Login </a> </li>
+      <li> <a class="login" href="/login"> Login </a> </li>
       <li> <a href='/users/new' > Register </a> </li>
       <% end %>
     </ul>

@@ -7,8 +7,10 @@ $(document).ready(function() {
       url: "/login",
       data: formData
     }).done(function(response) {
-
-      $('.errors').html(response)
+      if (response['redirect']) {window.location = response['url']}
+      else {
+        $('.errors').html()
+      }
 
     })
   })
