@@ -1,20 +1,21 @@
-<div id='login' class="login">
+<div id='login' class="login-register">
 <div class="title"><h1>Login to your account</h1></div>
-<form class='session-form' id='login-form' action='/sessions' method="post" >
+<form class='session-form' id='login-form' action='/login' method="post" >
 <span> Username </span>
   <div class="input">
-    <div class="icon">
+
       <i class="fa fa-user"></i>
-      </div>
+
   <input type='text' placeholder="username" name="user[username]">
   </div>
+  <br>
   <span> Password </span>
   <div class="input pass">
-        <div class="icon">
-          <i class="fa fa-lock"></i>
-        </div>
+  <i class="fa fa-lock"></i>
   <input type='password' placeholder="password" name="user[password]">
   </div>
-  <input type='submit' value='login'>
+  <br>
+  <input type='submit' class='submit' value='login'>
 </form>
+<div class='errors'></div>
 </div>

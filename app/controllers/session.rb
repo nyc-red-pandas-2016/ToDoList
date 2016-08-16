@@ -1,16 +1,15 @@
-post '/sessions' do
+post '/login' do
 
   user = User.find_by(username: params[:user][:username])
   if user && user.authenticate(params[:user][:password])
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
   elsif user
-    @errors = "Incorrect Password for #{user.username}"
+    "<br>Incorrect Password for #{user.username}"
   else
-    @errors = "Invalid Username "
+    "418"
   end
 
-  erb :'index'
 end
 
 

@@ -1,9 +1,21 @@
-<div id='registration' class="container">
-<h2> Register </h2>
+
+<div id='login' class="login-register">
+<div class="title"><h1>Register</h1></div>
 <form class='sesssion-form' id='registration-form' action='/users' method="post" >
+
+  <div class="input">
+  <i class="fa fa-user"></i>
   <input type='text' placeholder="username" name="user[username]">
-  <input type='text' placeholder="email" name="user[email]">
+  <br><br>
+
+  <i class="fa fa-envelope"></i>  <input type='text' placeholder="email" name="user[email]">
+  </div>
+
+  <br>
+  <i class="fa fa-lock"></i>
   <input type='password' placeholder="password" name="user[password]">
-  <input type='submit' value='register'>
+  <br><br>
+  <input class='submit' type='submit' value='register'>
 </form>
+<div class='errors'></div>
 </div>

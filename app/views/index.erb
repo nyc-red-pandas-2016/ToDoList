@@ -1,12 +1,17 @@
 
 <% if !logged_in? %>
+<div id='home-login'>
   <%= erb :'partials/_login_form', layout: false %>
-  <%= erb :'partials/_registration_form', layout: false %>
-
+</div>
 <% else %>
+
+<div id='home-content'>
+</div>
 
 <% end %>
 
 
-
+<div id='home-content'>
+<h1> this is content </h1>
+</div>
 

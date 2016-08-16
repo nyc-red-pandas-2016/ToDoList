@@ -4,7 +4,7 @@ post '/users' do
     session[:user_id] = new_user.id
     redirect "/users/#{new_user.id}"
   else
-    @errors = new_user.errors.full_messages
+    new_user.errors.full_messages.join("<br>")
   end
 
 end
