@@ -15,4 +15,9 @@ post '/tasks/create' do
   end
 end
 
-
+get '/tasks/complete/:id' do
+  @task= Task.find(params[:id])
+  @task.completed= true
+  @task.save
+  erb :"/tasks/show"
+end

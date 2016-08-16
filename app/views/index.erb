@@ -3,7 +3,8 @@
   <% if @lists %>
     <ul>
     <% @lists.each do |list| %>
-      <li> <a href="/lists/<%=list.id%>"><%= list.title %></a></li><br>
+      <li> <a href="/lists/<%=list.id%>"><%= list.title %></a>
+      </li><br>
     <% end %>
     <ul>
   <% end %>

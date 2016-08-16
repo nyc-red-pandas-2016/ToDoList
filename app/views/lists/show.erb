@@ -9,8 +9,12 @@
     <li class="list-item">
       <%=task.body %>:
       <% if @list.user_id == current_user && !task.completed %>
+
         <a href="/tasks/complete/<%=task.id%>">Complete Task!</a>
       <%end%>
+      <% if task.completed %>
+        Complete!!!
+      <% end%>
     </li><br>
   <% end %>
   </ul>
