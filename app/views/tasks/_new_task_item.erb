@@ -1,0 +1,25 @@
+<td><%= task.name %>
+  <a href='/lists/<%=@list.id%>/tasks/<%=task.id %>/edit'>Edit</a>
+
+  <form action='/lists/<%=@list.id %>/tasks/<%= task.id %>' method="post">
+    <input name="_method" type="hidden" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+</td>
+<td><%= task.description %></td>
+<td><%= task.status_check %>
+  <% if task.status %>
+  <form action='/lists/<%=@list.id%>/tasks/<%=task.id %>/status' method="post">
+    <input name="_method" type="hidden" value="put">
+    <input name="complete" type="hidden" value="true">
+    <input type="submit" value="Mark Incomplete">
+  </form>
+  <% else %>
+    <form action='/lists/<%=@list.id%>/tasks/<%=task.id %>/status' method="post">
+    <input name="_method" type="hidden" value="put">
+    <input name="complete" type="hidden" value="false">
+    <input type="submit" value="Mark Complete">
+  </form>
+  <% end %>
+</td>
+<td><%= task.created_at %></td>

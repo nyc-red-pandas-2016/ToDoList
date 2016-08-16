@@ -139,7 +139,7 @@ border-radius: 5px;
 New List/Task Form
 *********/
 
-.new-list-form input[type=text], select {
+.new-list-form input[type=text], select, .dbc input[type=text], .edit-task input[type=text] {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -150,7 +150,7 @@ New List/Task Form
     font-size: 20px;
 }
 
-.new-list-form input[type=submit] {
+.new-list-form input[type=submit], .dbc input[type=submit], .edit-task input[type=submit] {
     width: 50%;
     background-color: #4CAF50;
     color: white;
@@ -166,7 +166,7 @@ New List/Task Form
     background-color: #45a049;
 }
 
-.new-list-form textarea {
+.new-list-form textarea, .dbc textarea, .edit-task textarea {
   font-size: 20px;
   padding: 12px 20px;
   }
@@ -177,11 +177,17 @@ New List/Task Form
 }
 
 /*Ajax stuff*/
-.wrapper{
+.list-form-wrapper{
   position: absolute;
   width: 100%;
   left: 270px;
   bottom: -150px;
+}
+
+.task-form-wrapper{
+  position: absolute;
+  width: 100%;
+  left: 270px;
 }
 
 /********

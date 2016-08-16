@@ -9,7 +9,7 @@ end
 get '/lists/:id/tasks/new' do
   @list = List.find(params[:id])
   if request.xhr?
-    erb :'tasks/_new_task_form', layout:false
+    erb :'tasks/_new_task_form_wrapper', layout:false
   else
     erb :'tasks/new'
   end
@@ -20,7 +20,11 @@ post '/lists/:id/tasks' do
   @list = List.find(params[:id])
   @task = @list.tasks.new(params[:task])
   if @task.save
-    redirect "/lists/#{@list.id}/tasks"
+    if request.xhr?
+      erb :'tasks/_new_task_item', layout: false, locals: {list: @list, task: @task}
+    else
+      redirect "/lists/#{@list.id}/tasks"
+    end
   else
     @errors = @task.errors.full_messages
     erb :'tasks/new'
@@ -37,7 +41,7 @@ end
 put '/lists/:id/tasks/:id' do
   @task = Task.find(params[:id])
   @task.update(params[:task])
-  redirect "/lists/#{params[:task][:list_id]}"
+  redirect "/lists/#{params[:task][:list_id]}/tasks"
 end
 
 #Change a tasks status
