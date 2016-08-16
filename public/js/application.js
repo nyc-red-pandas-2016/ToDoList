@@ -9,7 +9,7 @@ $(document).ready(function() {
     }).done(function(response) {
       if (response['redirect']) {window.location = response['url']}
       else {
-        $('.errors').html()
+        $('.errors').html(response)
       }
 
     })
@@ -22,7 +22,11 @@ $(document).ready(function() {
       type: "POST",
       url: '/users',
       data: formData
-      }).done(function(response) { })
+      }).done(function(response) {
+        if (response['redirect']) {window.location = response['url']}
+        else {
+        $('.errors').html(response)
+      }})
   })
 });
 

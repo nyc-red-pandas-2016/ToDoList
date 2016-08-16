@@ -18,4 +18,5 @@
   <input class='submit' type='submit' value='register'>
 </form>
 <div class='errors'></div>
+  <%= erb :'partials/_errors', locals:{errors: @errors} %>
 </div>

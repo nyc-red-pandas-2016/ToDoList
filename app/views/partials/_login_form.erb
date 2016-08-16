@@ -18,4 +18,11 @@
   <input type='submit' class='submit' value='login'>
 </form>
 <div class='errors'></div>
+<% if @errors %>
+  <ul>
+  <% @errors.each do |e| %>
+  <li> <%= e %> </li>
+<% end %>
+  </ul>
+  <% end %>
 </div>
