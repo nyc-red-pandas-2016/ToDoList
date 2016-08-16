@@ -35,7 +35,7 @@ get '/lists/:id' do
 	if logged_in?
 		@list = List.find(params[:id])
 		@tasks = @list.tasks
-		erb :'/lists/show'
+		erb :'lists/show'
 	else
 		redirect '/users/new'
 	end
@@ -82,11 +82,11 @@ post '/lists/:id/tasks' do
   task = Task.new(params[:task])
 
   if task.save
-    # if request.xhr?
-    #   erb :'lists/_list', locals: {list: list}, layout: false
-    # else
+    if request.xhr?
+      erb :'lists/_task', locals: {task: task}, layout: false
+    else
       redirect "/tasks/#{task.id}"
-    # end
+    end
   else
     @errors = task.errors.full_messages
     erb :'/tasks/new'

@@ -3,13 +3,30 @@
   <h4><a href="/lists/<%= @list.id %>/edit">Edit List</a></h4>
 
   <h3>All tasks in this list:</h3>
-  <h4><a href="/lists/<%= @list.id %>/tasks/new">Add a task</a></h4>
+  <h4><a id="create_task" href="/lists/<%= @list.id %>/tasks/new">Add a task</a></h4>
 
-  <ol>
-    <% @tasks.each do |task| %>
-      <li><%= task.name %></li>
-    <% end %>
-  </ol>
+  <div id="task_form">
+
+	  <h1><a href='/'>Create a new Task</a><h1>
+
+	  <%= erb :'_errors', locals: {errors: @errors} %>
+
+	  <form id="new_task" action="/lists/<%= @list.id %>/tasks" method="POST">
+	    <input type="hidden" name="task[user_id]" value="<%= current_user.id %>">
+	    <input type="hidden" name="task[list_id]" value="<%= @list.id %>">
+	    <div class="row name">
+	      <input type="text" name="task[name]" placeholder="Name"> </div>
+	    <div class="row description">
+	      <input type="text" name="task[description]" placeholder="Description"> </div>
+	    <input type="submit" name="" value="Create Task">
+	  </form>
+	</div>
+
+	<ol class="create_tasks">
+	  <% @tasks.each do |task| %>
+	    <%= erb :'lists/_task', locals: {task: task} %>
+	  <% end %>
+	</ol>
 
   <% 30.times do %>
     <br>

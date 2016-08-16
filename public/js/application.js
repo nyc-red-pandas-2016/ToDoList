@@ -56,5 +56,27 @@ $(document).ready(function() {
 			$('.create_list').append(response);
 		})
 	});
+
+	// Creating a new task for a list
+	$('#task_form').hide();
+
+	$('#create_task').on("click", function(event) {
+		event.preventDefault();
+		$('#task_form').toggle();
+	});
+
+	$('#new_task').on("submit", function(event) {
+	event.preventDefault();
+	var data = $(this).serialize();
+	var list_id = $(this).serializeArray()[1].value;
+	$.ajax ({
+		method: "post",
+		url: "/lists/"+list_id+"/tasks",
+		// url: $(this).attr('action'),
+		data: data
+	}).done(function(response) {
+		$('.create_tasks').append(response);
+		})
+	});
 });
 
