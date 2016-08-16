@@ -22,7 +22,7 @@
     <ul>
       <li> <a href="/"> Home </a> </li>
       <% if logged_in? %>
-      <li> <a href="/users/<%= session[:user_id].to_s %>"> <%= User.find(session[:user_id]).username %> </a> </li>
+      <li> <i class="fa fa-user"><a href="/users/<%= session[:user_id].to_s %>"> <%= User.find(session[:user_id]).username %> </a> </i></li>
       <li> <a href="/logout"> Logout </a> </li>
       <% else %>
       <li> <a href="/login"> Login </a> </li>
