@@ -1,7 +1,8 @@
 <div class='container'>
   <h1><a href="/lists/<%= @task.list.id %>"><%= @task.name %></a></h1>
-  <h4><a href="/lists/<%= @task.id %>/edit">Edit Task</a></h4>
+  <h4><a href="/tasks/<%= @task.id %>/edit">Edit Task</a></h4>
   <p>Description: <%= @task.description %></p>
+  <p>Task completed?: <%= @task.status %></p>
   <p>Task is part of list: <%= @task.list.title %></p>
   <p>Date created: <%= @task.created_at %></p>
 

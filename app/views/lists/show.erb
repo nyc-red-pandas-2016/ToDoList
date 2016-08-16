@@ -7,12 +7,12 @@
 
   <div id="task_form">
 
-	  <h1><a href='/'>Create a new Task</a><h1>
+	  <h1>Create a new Task<h1>
 
 	  <%= erb :'_errors', locals: {errors: @errors} %>
 
 	  <form id="new_task" action="/lists/<%= @list.id %>/tasks" method="POST">
-	    <input type="hidden" name="task[user_id]" value="<%= current_user.id %>">
+	    <input type="hidden" name="task[status]" value="false">
 	    <input type="hidden" name="task[list_id]" value="<%= @list.id %>">
 	    <div class="row name">
 	      <input type="text" name="task[name]" placeholder="Name"> </div>

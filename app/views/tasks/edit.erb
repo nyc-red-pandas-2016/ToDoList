@@ -1,0 +1,28 @@
+<div class="container">
+
+  <h2>Edit Task</h2>
+
+  <form id="edit_task" action="/tasks/<%= @task.id %>" method="POST">
+    <input type = "hidden" name = "_method" value = "PUT">
+    <div class="row name">
+      <input type="text" name="task[name]" value="<%= @task.name %>"> </div><br>
+    <div class="row description">
+      <input type="text" name="task[description]" value="<%= @task.description %>"> </div><br>
+    <div class="row status">
+      <input type="text" name="task[status]" value="<%= @task.status %>"> </div><br>
+    <input type="submit" value="Edit Task">
+  </form>
+
+  <br>
+  <br>
+
+  <form id="delete_task" action="/tasks/<%= @task.id %>" method="POST">
+    <input name="_method" type="hidden" value="DELETE">
+    <input type="submit" value="Delete Task">
+  </form>
+
+  <% 30.times do %>
+    <br>
+  <% end %>
+
+</div>
