@@ -56,5 +56,9 @@ end
 delete '/lists/:id/tasks/:id' do
   @list = Task.find(params[:id]).list
   Task.find(params[:id]).destroy
+  if request.xhr?
+    "true"
+  else
   redirect "/lists/#{@list.id}/tasks"
+  end
 end

@@ -54,4 +54,32 @@ $(document).ready(function() {
       $('table').append('<tr>'+response+'</tr>');
     });
   });
+
+  // Delete task AJAX function
+  $('.container').on('submit','tr #delete-task', function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: $(event.target).find('input').attr('value'),
+      url: $(event.target).attr('action')
+    }).done(function(response){
+      if (response === "true") {
+        $(event.target).parent().parent().remove();
+      }
+    });
+  });
+
+
+  // Delete list task AJAX function
+  $('.container').on('submit','tr #delete-list', function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: $(event.target).find('input').attr('value'),
+      url: $(event.target).attr('action')
+    }).done(function(response){
+      if (response === "true") {
+        $(event.target).parent().parent().remove();
+      }
+    });
+  });
+
 });

@@ -43,8 +43,8 @@ end
 delete '/lists/:id' do
   List.find(params[:id]).destroy
   if request.xhr?
-
+    "true"
   else
-  redirect "/users/#{current_user.id}"
-end
+    redirect "/users/#{current_user.id}"
+  end
 end

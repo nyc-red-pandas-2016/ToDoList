@@ -1,7 +1,7 @@
 <td>
   <a href='/lists/<%=list.id%>/tasks'><%= list.title %></a>
   <a href='/lists/<%=list.id%>/edit'><button>Edit</button></a>
-  <form action='/lists/<%=list.id %>' method="post">
+  <form id='delete-list' action='/lists/<%=list.id %>' method="post">
     <input name="_method" type="hidden" value="delete">
     <input type="submit" value="Delete">
   </form>
