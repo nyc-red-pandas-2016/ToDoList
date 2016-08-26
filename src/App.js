@@ -8,8 +8,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      lists:[]
+      lists:[{item: "Buy flowers"}, {item: "Clean the house"}, {item: "Do the laundry"}]
       };
+    this.updateList = this.updateList.bind(this);
+  }
+
+
+  updateList(newToDo) {
+    this.setState({lists:newTodo});
   }
 
   render() {
@@ -20,7 +26,8 @@ class App extends Component {
           <h2>Welcome to The To Do List!</h2>
         </div>
         <div>
-          <CreateForm/>
+          <h3>Add to Your To Do List</h3>
+          <CreateForm onCreate={this.props.onCreate}/>
         </div>
         <div>
           <List/>

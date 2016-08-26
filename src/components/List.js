@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
+import ToDo from './ToDo.js'
 
 export default class List extends Component {
   constructor() {
     super();
     this.state = {
-      lists: [{item: "Buy flowers"}, {item: "Eat Spinach"}, {item: "Arrest the Fugitive"}, {item: "Smash the Dinner Plates"}, {item: "Move the Piano"}, {item: "Lurch Toward the Door"}, {item:"Anger the Constable"}]
+      lists: [{item: "Buy flowers"}, {item: "Clean the house"}, {item: "Do the laundry"}]
     }
   }
 
   render() {
+
+    var lists = this.props.lists;
+
     return (
       <div>
       <h3>To Do List:</h3>
       <ul>
-          <p>Test To Do Item</p>
-          
+          <ToDo />
       </ul>
       </div>
     )
