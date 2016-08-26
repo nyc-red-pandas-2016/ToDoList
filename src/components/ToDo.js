@@ -5,7 +5,7 @@ export default class ToDo extends Component {
     var todo = this.props.todo;
 
     return (
-      <li>Test To Do Item LALALALAL</li>
+      <li>{todo.item}</li>
     );
   }
 }

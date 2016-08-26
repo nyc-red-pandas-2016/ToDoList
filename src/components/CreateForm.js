@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
 export default class CreateForm extends Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
 
     handleSubmit(event) {
       event.preventDefault();
       let inputDOM = this.refs.toDoListItem;
       this.props.onSubmit(inputDOM.value);
+
       inputDOM.value = '';
     }
 

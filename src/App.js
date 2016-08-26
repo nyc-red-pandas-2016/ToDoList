@@ -8,14 +8,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      lists:[{item: "Buy flowers"}, {item: "Clean the house"}, {item: "Do the laundry"}]
+      lists:[{item: "Buy flowers", completed: false}, {item: "Clean the house", completed: false}, {item: "Do the laundry", completed: false}]
       };
     this.updateList = this.updateList.bind(this);
   }
 
 
   updateList(newToDo) {
-    this.setState({lists:newTodo});
+    this.setState({lists:[ { item: newToDo, completed: false } ].concat(this.state.lists)});
   }
 
   render() {
@@ -27,10 +27,10 @@ class App extends Component {
         </div>
         <div>
           <h3>Add to Your To Do List</h3>
-          <CreateForm onCreate={this.props.onCreate}/>
+          <CreateForm onSubmit={this.updateList}/>
         </div>
         <div>
-          <List/>
+          <List lists={this.state.lists}/>
         </div>
       </div>
     );

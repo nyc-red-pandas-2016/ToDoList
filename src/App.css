@@ -22,3 +22,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.ToDoList {
+  background: #f0f0f5;
+  margin: 10px;
+  width: 250px;
+  height: 100px;
+}
+
+.ToDoList ul {
+    background: #f0f0f5;
+}
