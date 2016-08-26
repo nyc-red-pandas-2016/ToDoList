@@ -11,10 +11,10 @@ put '/tasks/:id' do
 end
 
 
-post '/tasks' do
+post '/tasks' do #liists/:id/tasks
     @task = Task.new(params[:task].merge(:list_id=>session[:list_id]))
     if @task.save
-       redirect "/list/#{current_list.id}"
+       redirect "/list/#{current_list.id}" #:id
      else
        @list = current_list
        @errors = @task.errors.full_messages
