@@ -44,7 +44,7 @@ class App extends Component {
          filteredTasks = filteredTasks.filter(task => !task.checked);
        }
        return filteredTasks.map((task) => {
-         const currentUserId = this.props.currentUser && this.props.curentUser._id;
+         const currentUserId = this.props.currentUser && this.props.currentUser._id;
          const showPrivateButton = task.owner === currentUserId;
 
          return(
